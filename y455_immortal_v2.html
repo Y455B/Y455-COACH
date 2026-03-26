@@ -1,0 +1,357 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+.hub{padding:1rem 0;font-family:var(--font-sans);}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1.4rem;}
+.tab{padding:7px 15px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;color:var(--color-text-secondary);font-size:13px;cursor:pointer;font-family:var(--font-sans);transition:all 0.12s;}
+.tab.active{background:var(--color-background-danger);color:var(--color-text-danger);border-color:var(--color-border-danger);font-weight:500;}
+.tab:hover:not(.active){background:var(--color-background-secondary);color:var(--color-text-primary);}
+.section{display:none;}.section.active{display:block;}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:9px;margin-bottom:1.1rem;}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:9px;margin-bottom:1.1rem;}
+.mc{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.85rem;}
+.mc .lbl{font-size:11px;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+.mc .val{font-size:20px;font-weight:500;}
+.mc .sub{font-size:11px;color:var(--color-text-tertiary);margin-top:2px;}
+.mc.bad .val{color:#d85a30;}.mc.ok .val{color:#1d9e75;}.mc.mid .val{color:#ba7517;}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.2rem;margin-bottom:1rem;}
+.card h3{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:11px;}
+.bdg{display:inline-block;padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;font-weight:500;}
+.bdg.red{background:#fcebeb;color:#a32d2d;}.bdg.green{background:#eaf3de;color:#3b6d11;}.bdg.amber{background:#faeeda;color:#854f0b;}.bdg.blue{background:#e6f1fb;color:#185fa5;}.bdg.gray{background:var(--color-background-secondary);color:var(--color-text-secondary);}
+.row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;}
+.row:last-child{border-bottom:none;}
+.insight{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);}
+.insight:last-child{border-bottom:none;}
+.dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.itext{font-size:13px;color:var(--color-text-primary);line-height:1.5;}
+.itext b{font-weight:500;}
+.phase{border-left:2px solid var(--color-border-tertiary);padding-left:1rem;margin-bottom:1.3rem;}
+.phase.p1{border-color:#d85a30;}.phase.p2{border-color:#ba7517;}.phase.p3{border-color:#1d9e75;}
+.ph-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px;}
+.ph-sub{font-size:11px;color:var(--color-text-tertiary);margin-bottom:9px;}
+.drill{display:flex;justify-content:space-between;align-items:flex-start;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;}
+.drill:last-child{border-bottom:none;}
+.drill-n{color:var(--color-text-primary);line-height:1.4;flex:1;}
+.drill-d{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.ci{display:flex;gap:10px;padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;align-items:flex-start;cursor:pointer;}
+.ci:last-child{border-bottom:none;}
+.ci-box{width:17px;height:17px;border-radius:4px;border:0.5px solid var(--color-border-secondary);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;margin-top:1px;transition:all .15s;}
+.ci-box.done{background:#eaf3de;border-color:#3b6d11;color:#3b6d11;}
+.ci-text{flex:1;line-height:1.4;}
+.ci-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px;}
+.sens-row{display:flex;align-items:center;gap:10px;margin-bottom:11px;}
+.sens-row label{font-size:13px;color:var(--color-text-secondary);width:160px;flex-shrink:0;}
+.sens-row input[type=range]{flex:1;}
+.sens-row span{font-size:13px;font-weight:500;width:50px;text-align:right;color:var(--color-text-primary);}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:4px;}
+.res-box{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem;}
+.res-box .rl{font-size:11px;color:var(--color-text-tertiary);margin-bottom:3px;}
+.res-box .rv{font-size:18px;font-weight:500;color:var(--color-text-primary);}
+.res-box.hi{background:var(--color-background-info);}
+.res-box.hi .rl{color:var(--color-text-info);}.res-box.hi .rv{color:var(--color-text-info);}
+.vod-q{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem 1rem;margin-bottom:7px;font-size:13px;color:var(--color-text-primary);line-height:1.5;}
+.vod-q b{font-weight:500;color:#d85a30;}
+.note{padding:9px 12px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);font-size:12px;color:var(--color-text-secondary);line-height:1.5;margin-top:8px;}
+.timer-box{text-align:center;padding:1.5rem 1rem;}
+.timer-display{font-size:48px;font-weight:500;color:var(--color-text-primary);font-variant-numeric:tabular-nums;margin-bottom:1rem;}
+.timer-label{font-size:13px;color:var(--color-text-secondary);margin-bottom:1.5rem;}
+.timer-btns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.tbtn{padding:8px 20px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-secondary);background:transparent;font-size:13px;cursor:pointer;font-family:var(--font-sans);color:var(--color-text-primary);}
+.tbtn.start{background:var(--color-background-success);border-color:var(--color-border-success);color:var(--color-text-success);}
+.tbtn.stop{background:var(--color-background-danger);border-color:var(--color-border-danger);color:var(--color-text-danger);}
+.drill-list{list-style:none;margin-top:8px;}
+.dl-item{display:flex;gap:10px;align-items:center;padding:7px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:13px;}
+.dl-item:last-child{border-bottom:none;}
+.dl-dur{width:50px;font-size:12px;color:var(--color-text-info);flex-shrink:0;font-weight:500;}
+.dl-name{color:var(--color-text-primary);}
+.dl-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.current-drill{background:var(--color-background-info);border-radius:var(--border-radius-md);padding:.6rem 1rem;margin-bottom:12px;font-size:13px;color:var(--color-text-info);font-weight:500;}
+</style>
+
+<div class="hub">
+  <div style="margin-bottom:1.3rem;">
+    <div style="font-size:19px;font-weight:500;color:var(--color-text-primary);">Y455 — Roadmap Immortal</div>
+    <div style="font-size:13px;color:var(--color-text-secondary);margin-top:3px;">Silver 2 → Immortal · 8 semaines · Reyna main + Omen</div>
+  </div>
+
+  <div class="nav">
+    <button class="tab active" onclick="show('diag')">Diagnostic</button>
+    <button class="tab" onclick="show('plan')">Plan 8 sem.</button>
+    <button class="tab" onclick="show('session')">Session timer</button>
+    <button class="tab" onclick="show('aim')">Aim & Sens</button>
+    <button class="tab" onclick="show('agents')">Agents</button>
+    <button class="tab" onclick="show('vod')">VOD</button>
+    <button class="tab" onclick="show('check')">Checklist</button>
+  </div>
+
+  <!-- DIAGNOSTIC -->
+  <div id="tab-diag" class="section active">
+    <div class="g4">
+      <div class="mc bad"><div class="lbl">HS%</div><div class="val">17.9%</div><div class="sub">→ 30% Immortal</div></div>
+      <div class="mc bad"><div class="lbl">Variance ACS</div><div class="val">±84pts</div><div class="sub">→ &lt; 30pts</div></div>
+      <div class="mc mid"><div class="lbl">Win Rate</div><div class="val">50%</div><div class="sub">→ 55%+</div></div>
+      <div class="mc mid"><div class="lbl">KAST</div><div class="val">72.8%</div><div class="sub">→ 78%</div></div>
+      <div class="mc bad"><div class="lbl">Deviation</div><div class="val">0.53</div><div class="sub">→ &lt; 0.35</div></div>
+      <div class="mc mid"><div class="lbl">Accuracy</div><div class="val">64.7%</div><div class="sub">→ 74%+</div></div>
+      <div class="mc ok"><div class="lbl">Switch time</div><div class="val">21ms</div><div class="sub">Déjà bon</div></div>
+      <div class="mc bad"><div class="lbl">Ghost HS%</div><div class="val">15.2%</div><div class="sub">Pistolet gâché</div></div>
+    </div>
+    <div class="card">
+      <h3>3 plafonds à casser dans l'ordre</h3>
+      <div class="insight">
+        <div class="dot" style="background:#d85a30;"></div>
+        <div class="itext"><b>1. HS% à 17.9%</b> — mur absolu. En Immortal tout le monde aim. Si ton TTK est 30% plus long tu perds les duels avant même de les commencer. Rien d'autre ne compte tant que ce chiffre n'est pas à 24%+.</div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:#d85a30;"></div>
+        <div class="itext"><b>2. Variance ACS 77↔244</b> — tu n'as pas de système de jeu stable. Les bons joueurs performent à 85% même les mauvais jours. Quand l'aim flanche tu n'as pas de plan B. Ça se règle avec le crosshair placement + le cadre décisionnel.</div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:#ba7517;"></div>
+        <div class="itext"><b>3. Ghost HS% 15.2%</b> — tes rounds pistolet sont perdus d'avance. Ton Sheriff HS% 36.4% prouve que tu sais viser. Le Ghost demande la même mentalité : 1 tir, tête, stop.</div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Maps — priorité de jeu</h3>
+      <div class="row"><span>Split</span><span class="bdg green">100% WR · Ban jamais</span></div>
+      <div class="row"><span>Fracture</span><span class="bdg green">100% WR · Ban jamais</span></div>
+      <div class="row"><span>Haven / Pearl</span><span class="bdg amber">50% WR · Travail phase 2</span></div>
+      <div class="row"><span>Bind</span><span class="bdg red">25% WR · Ban prioritaire</span></div>
+      <div class="row"><span>Lotus</span><span class="bdg red">20% WR · Ban prioritaire</span></div>
+    </div>
+  </div>
+
+  <!-- PLAN 8 SEM -->
+  <div id="tab-plan" class="section">
+    <div class="card">
+      <h3>Plan condensé — 8 semaines vers Immortal</h3>
+
+      <div class="phase p1">
+        <div class="ph-title">Phase 1 — Mécanique pure <span class="bdg red" style="margin-left:6px;">Sem. 1-3</span></div>
+        <div class="ph-sub">Un seul focus : HS% passe de 17.9% → 22%. Rien d'autre.</div>
+        <div class="drill"><div class="drill-n">Oblivity 20 min/jour<div class="drill-d">1 wall 5 targets small → Accuracy &gt;70%, Deviation &lt;0.42</div></div><span class="bdg red">Quotidien</span></div>
+        <div class="drill"><div class="drill-n">Range Valorant — headshot only<div class="drill-d">Ne tire QUE si crosshair sur la tête. Bots strafing, vitesse medium.</div></div><span class="bdg red">15 min/j</span></div>
+        <div class="drill"><div class="drill-n">DM — counter-strafe unique règle<div class="drill-d">Stop → tire → rebougement. Pas de spray en mouvement.</div></div><span class="bdg red">15 min/j</span></div>
+        <div class="drill"><div class="drill-n">2 ranked max par jour<div class="drill-d">Agent : Reyna. Focus unique : crosshair placement.</div></div><span class="bdg gray">2 games</span></div>
+      </div>
+
+      <div class="phase p2">
+        <div class="ph-title">Phase 2 — Constance + angles <span class="bdg amber" style="margin-left:6px;">Sem. 4-6</span></div>
+        <div class="ph-sub">Objectif : ACS &gt;245 stable, Win Rate &gt;53%, HS% &gt;24%.</div>
+        <div class="drill"><div class="drill-n">3 angles par site mémorisés<div class="drill-d">Split + Fracture d'abord. Chaque pixel compte en ranked.</div></div><span class="bdg amber">3x/sem</span></div>
+        <div class="drill"><div class="drill-n">Ghost pistol rounds<div class="drill-d">1 balle à la tête par duel. HS% Ghost cible : 28%+</div></div><span class="bdg amber">Chaque game</span></div>
+        <div class="drill"><div class="drill-n">Minimap check toutes les 5 sec<div class="drill-d">Installe le réflexe maintenant. En Silver personne ne le fait.</div></div><span class="bdg amber">Chaque game</span></div>
+        <div class="drill"><div class="drill-n">VOD review 1x/semaine<div class="drill-d">20 min · Tes morts uniquement. Voir onglet VOD.</div></div><span class="bdg gray">1x/sem</span></div>
+      </div>
+
+      <div class="phase p3">
+        <div class="ph-title">Phase 3 — Push Diamond → Immortal <span class="bdg green" style="margin-left:6px;">Sem. 7-8</span></div>
+        <div class="ph-sub">Objectif : 0 variance, duels uniquement avec avantage, HS% &gt;28%.</div>
+        <div class="drill"><div class="drill-n">Cadre décisionnel automatique<div class="drill-d">Engage seulement si : info dispo, 2v1, ennemi affaibli, ou angle de préférence.</div></div><span class="bdg green">Chaque game</span></div>
+        <div class="drill"><div class="drill-n">Introduire Omen en second agent<div class="drill-d">Smokes d'abord en custom. 1 game Omen pour 3 games Reyna.</div></div><span class="bdg green">Sem. 7</span></div>
+        <div class="drill"><div class="drill-n">Watch 1 pro Reyna/semaine<div class="drill-d">TenZ, Aspas. Copie leurs mouvements de crosshair exactement.</div></div><span class="bdg green">1x/sem</span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Règles absolues — pas négociables</h3>
+      <div class="row"><span>Sensi fixe 8 semaines</span><span class="bdg red">Interdit de toucher</span></div>
+      <div class="row"><span>Max 3 ranked/jour</span><span class="bdg red">Strict</span></div>
+      <div class="row"><span>Stop après 2 défaites consécutives</span><span class="bdg red">Strict</span></div>
+      <div class="row"><span>Warm-up AVANT chaque ranked</span><span class="bdg amber">Obligatoire</span></div>
+      <div class="row"><span>Reyna main jusqu'à Diamond</span><span class="bdg amber">Recommandé</span></div>
+    </div>
+  </div>
+
+  <!-- SESSION TIMER -->
+  <div id="tab-session" class="section">
+    <div class="card">
+      <h3>Timer de session guidé</h3>
+      <div id="current-drill-label" class="current-drill" style="display:none;"></div>
+      <div class="timer-box">
+        <div class="timer-display" id="timer-display">20:00</div>
+        <div class="timer-label" id="timer-label">Sélectionne un exercice</div>
+        <div class="timer-btns">
+          <button class="tbtn start" onclick="startTimer()" id="btn-start">Démarrer</button>
+          <button class="tbtn stop" onclick="pauseTimer()" id="btn-pause" style="display:none;">Pause</button>
+          <button class="tbtn" onclick="resetTimer()">Reset</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>Sélectionne un bloc</h3>
+      <ul class="drill-list">
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('Oblivity warm-up',20)"><div class="dl-dot" style="background:#d85a30;"></div><div class="dl-dur">20 min</div><div class="dl-name">Oblivity warm-up</div></li>
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('Range — headshot only',15)"><div class="dl-dot" style="background:#d85a30;"></div><div class="dl-dur">15 min</div><div class="dl-name">Range Valorant — headshot only</div></li>
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('DM — counter-strafe',15)"><div class="dl-dot" style="background:#d85a30;"></div><div class="dl-dur">15 min</div><div class="dl-name">DM structuré — counter-strafe</div></li>
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('VOD review',20)"><div class="dl-dot" style="background:#ba7517;"></div><div class="dl-dur">20 min</div><div class="dl-name">VOD review</div></li>
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('Ranked game',45)"><div class="dl-dot" style="background:#1d9e75;"></div><div class="dl-dur">45 min</div><div class="dl-name">Game ranked (1 game estimée)</div></li>
+        <li class="dl-item" style="cursor:pointer;" onclick="setDrill('Échauffement poignet',5)"><div class="dl-dot" style="background:#185fa5;"></div><div class="dl-dur">5 min</div><div class="dl-name">Échauffement poignet</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- AIM & SENS -->
+  <div id="tab-aim" class="section">
+    <div class="card">
+      <h3>Calculateur de sensibilité</h3>
+      <div class="sens-row">
+        <label>DPI souris</label>
+        <input type="range" min="400" max="3200" step="50" value="800" id="dpi" oninput="calcSens()">
+        <span id="dpi-out">800</span>
+      </div>
+      <div class="sens-row">
+        <label>Sensi Valorant in-game</label>
+        <input type="range" min="0.10" max="2.0" step="0.01" value="0.45" id="sens" oninput="calcSens()">
+        <span id="sens-out">0.45</span>
+      </div>
+      <div class="res-grid">
+        <div class="res-box hi"><div class="rl">eDPI</div><div class="rv" id="edpi">360</div></div>
+        <div class="res-box"><div class="rl">cm / 360°</div><div class="rv" id="cm360">97.8 cm</div></div>
+        <div class="res-box"><div class="rl">Zone Immortal</div><div class="rv" style="color:#1d9e75;">200–400</div></div>
+        <div class="res-box"><div class="rl">Verdict</div><div class="rv" id="verdict" style="font-size:13px;"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h3>5 règles aim niveau Immortal</h3>
+      <div class="insight"><div class="dot" style="background:#d85a30;"></div><div class="itext"><b>Crosshair à hauteur de tête en permanence.</b> Même sans ennemi visible. Tu prépares le duel avant qu'il commence. Si tu dois ajuster quand l'ennemi apparaît, tu as perdu 80ms.</div></div>
+      <div class="insight"><div class="dot" style="background:#d85a30;"></div><div class="itext"><b>Counter-strafe avant chaque tir.</b> Tu bouges à droite → pression brève à gauche → tir pendant l'arrêt net (0.1s) → rebougement. En mouvement ta dispersion est 3x plus large.</div></div>
+      <div class="insight"><div class="dot" style="background:#ba7517;"></div><div class="itext"><b>Spray max 4-5 balles.</b> Au-delà le spray Vandal devient aléatoire. Reset et retir. Ne jamais sprayer plus de 5 balles sans reset volontaire.</div></div>
+      <div class="insight"><div class="dot" style="background:#ba7517;"></div><div class="itext"><b>Ghost = 1 balle, tête, stop.</b> Ton Sheriff HS% 36.4% prouve que tu sais viser. Applique exactement la même mentalité au Ghost. Un round pistolet gagné = avantage économique sur 2-3 rounds.</div></div>
+      <div class="insight"><div class="dot" style="background:#1d9e75;"></div><div class="itext"><b>Posture et grip.</b> Grip neutre, bras décontracté, poignet légèrement surélevé. Si tu ressens une tension pendant le jeu, ta précision chute mécaniquement. Réinstalle la posture entre les rounds.</div></div>
+    </div>
+  </div>
+
+  <!-- AGENTS -->
+  <div id="tab-agents" class="section">
+    <div class="card">
+      <h3>Reyna — climb engine jusqu'à Diamond</h3>
+      <div class="insight"><div class="dot" style="background:#d85a30;"></div><div class="itext"><b>Dismiss (E) après chaque kill.</b> Invulnérabilité 2 secondes. En Silver personne ne Dismiss correctement. C'est une seconde vie gratuite à chaque élim. Priorité absolue : automatiser le réflexe Dismiss.</div></div>
+      <div class="insight"><div class="dot" style="background:#d85a30;"></div><div class="itext"><b>Leer (C) avant chaque duel.</b> L'orbe de cécité n'aveugle pas tes coéquipiers, seulement les ennemis. Pose-la sur l'angle avant d'exposer ta tête. Chaque duel sans Leer est un duel perdu d'avance.</div></div>
+      <div class="insight"><div class="dot" style="background:#ba7517;"></div><div class="itext"><b>Ulti = snowball, pas comeback.</b> Active l'ulti quand t'es déjà dans une bonne position, pas quand t'es à court de HP. L'ulti est faite pour finir une série de kills, pas pour renverser un 1v4.</div></div>
+      <div class="insight"><div class="dot" style="background:#1d9e75;"></div><div class="itext"><b>KPI à tracker.</b> Dismiss utilisé après &gt;80% des kills : bon. Leer posée avant &gt;70% des duels : bon. Si tu meurs avec Dismiss disponible : erreur mécanique à corriger en priorité.</div></div>
+    </div>
+    <div class="card">
+      <h3>Omen — second agent (sem. 7+)</h3>
+      <div class="insight"><div class="dot" style="background:#185fa5;"></div><div class="itext"><b>2 smokes par round minimum.</b> Coupe les lignes de vue les plus dangereuses avant chaque push. Apprends 2 placements par site par map avant de jouer ranked avec Omen.</div></div>
+      <div class="insight"><div class="dot" style="background:#185fa5;"></div><div class="itext"><b>Paranoia = Leer en grand.</b> Utilise-la sur les angles larges avant un push d'équipe. Même logique que Reyna : aveugler avant d'exposer.</div></div>
+      <div class="insight"><div class="dot" style="background:#185fa5;"></div><div class="itext"><b>Shrouded Step = repositionnement, pas fuite.</b> Téléporte-toi en position d'avantage, pas hors d'une situation déjà perdue. En Diamond, les joueurs entendent le son et pré-aim ton arrivée.</div></div>
+    </div>
+    <div class="card">
+      <h3>Pool complet — ordre d'apprentissage</h3>
+      <div class="row"><span>Reyna</span><span class="bdg red">Main · Maintenant → Diamond</span></div>
+      <div class="row"><span>Omen</span><span class="bdg amber">Second · Sem. 7+</span></div>
+      <div class="row"><span>Chamber</span><span class="bdg blue">Pocket pick · Après Diamond</span></div>
+      <div class="row"><span>Fade</span><span class="bdg gray">Pocket pick · Si team en a besoin</span></div>
+    </div>
+  </div>
+
+  <!-- VOD -->
+  <div id="tab-vod" class="section">
+    <div class="card">
+      <h3>Protocole VOD — 20 min, 1x/semaine</h3>
+      <div style="font-size:13px;color:var(--color-text-secondary);margin-bottom:10px;">Regarde uniquement tes morts. Pas les kills, pas les rounds gagnés. Pour chaque mort :</div>
+      <div class="vod-q"><b>1.</b> Avais-je l'info avant de prendre ce duel ?</div>
+      <div class="vod-q"><b>2.</b> Ma crosshair était-elle à hauteur de tête en arrivant à l'angle ?</div>
+      <div class="vod-q"><b>3.</b> Ai-je counter-strafé avant de tirer ?</div>
+      <div class="vod-q"><b>4.</b> Avais-je utilisé mon Leer disponible ?</div>
+      <div class="vod-q"><b>5.</b> Étais-je en position d'avantage ou de désavantage ?</div>
+      <div class="note">&gt;70% de morts avec 2+ "non" → problème décisionnel. &lt;30% → problème mécanique. Calibre ton entraînement en conséquence.</div>
+    </div>
+    <div class="card">
+      <h3>Catégorisation rapide</h3>
+      <div class="row"><span>Mort sans avantage préalable</span><span class="bdg red">→ Macro/décision</span></div>
+      <div class="row"><span>Mort crosshair mal placé</span><span class="bdg red">→ Aim phase 1</span></div>
+      <div class="row"><span>Mort sans counter-strafe</span><span class="bdg red">→ Aim phase 1</span></div>
+      <div class="row"><span>Mort Dismiss pas utilisé</span><span class="bdg amber">→ Reyna mécanique</span></div>
+      <div class="row"><span>Mort sans Leer posé</span><span class="bdg amber">→ Reyna kit</span></div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div id="tab-check" class="section">
+    <div class="card">
+      <h3>Pré-session</h3>
+      <ul>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Échauffement poignet (5 min)<div class="ci-sub">Étirements extenseurs, rotation poignet. Ne pas skip.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Oblivity warm-up complété (20 min)<div class="ci-sub">Accuracy &gt;68% avant de lancer le ranked.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">DM counter-strafe fait (15 min)<div class="ci-sub">Un seul focus : stop avant chaque tir.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Mental state OK<div class="ci-sub">Fatigué ou énervé = DM uniquement, pas de ranked.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Objectif unique de session défini<div class="ci-sub">Ex : "aujourd'hui counter-strafe avant chaque tir". Un focus, rien d'autre.</div></div></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Post-game</h3>
+      <ul>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">HS% vérifié sur Tracker.gg<div class="ci-sub">Cible : &gt;20% sem.1-3 · &gt;24% sem.4-6 · &gt;28% sem.7+</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Dismiss utilisé après &gt;80% des kills<div class="ci-sub">Si non : priorité à corriger avant la prochaine session.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Leer posée avant &gt;70% des duels<div class="ci-sub">Si non : idem, c'est le point de progression.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">Stop si 2 défaites consécutives<div class="ci-sub">Règle absolue. Le tilt détruit plus de RR qu'une mauvaise série.</div></div></li>
+        <li class="ci" onclick="toggle(this)"><div class="ci-box"></div><div class="ci-text">1 erreur récurrente identifiée<div class="ci-sub">Juste mentalement. Le pattern se corrige si tu le nommes.</div></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+function show(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  event.target.classList.add('active');
+}
+function toggle(el){
+  const b=el.querySelector('.ci-box');
+  b.classList.toggle('done');
+  b.textContent=b.classList.contains('done')?'✓':'';
+}
+function calcSens(){
+  const dpi=parseInt(document.getElementById('dpi').value);
+  const sens=parseFloat(document.getElementById('sens').value);
+  document.getElementById('dpi-out').textContent=dpi;
+  document.getElementById('sens-out').textContent=sens.toFixed(2);
+  const edpi=Math.round(dpi*sens);
+  const cm=(Math.round((36000/edpi)*10)/10).toFixed(1);
+  document.getElementById('edpi').textContent=edpi;
+  document.getElementById('cm360').textContent=cm+' cm';
+  const v=document.getElementById('verdict');
+  if(edpi>=200&&edpi<=400){v.textContent='Zone ok';v.style.color='#1d9e75';}
+  else if(edpi<200){v.textContent='Trop lente';v.style.color='#d85a30';}
+  else if(edpi<=600){v.textContent='Limite haute';v.style.color='#ba7517';}
+  else{v.textContent='Trop rapide';v.style.color='#d85a30';}
+}
+let timerInterval=null,timeLeft=0,running=false,drillName='';
+function setDrill(name,mins){
+  drillName=name;timeLeft=mins*60;running=false;
+  clearInterval(timerInterval);
+  document.getElementById('timer-display').textContent=fmt(timeLeft);
+  document.getElementById('timer-label').textContent=name;
+  const lbl=document.getElementById('current-drill-label');
+  lbl.style.display='block';lbl.textContent='Sélectionné : '+name;
+  document.getElementById('btn-start').style.display='inline-block';
+  document.getElementById('btn-pause').style.display='none';
+}
+function startTimer(){
+  if(timeLeft<=0)return;
+  running=true;
+  document.getElementById('btn-start').style.display='none';
+  document.getElementById('btn-pause').style.display='inline-block';
+  timerInterval=setInterval(()=>{
+    if(timeLeft>0){timeLeft--;document.getElementById('timer-display').textContent=fmt(timeLeft);}
+    else{clearInterval(timerInterval);document.getElementById('timer-label').textContent='Terminé !';document.getElementById('btn-pause').style.display='none';document.getElementById('btn-start').style.display='inline-block';}
+  },1000);
+}
+function pauseTimer(){
+  clearInterval(timerInterval);running=false;
+  document.getElementById('btn-pause').style.display='none';
+  document.getElementById('btn-start').style.display='inline-block';
+}
+function resetTimer(){
+  clearInterval(timerInterval);running=false;
+  if(drillName){const mins=timeLeft>0?Math.ceil(timeLeft/60):20;timeLeft=timeLeft;}
+  document.getElementById('btn-pause').style.display='none';
+  document.getElementById('btn-start').style.display='inline-block';
+}
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+calcSens();
+</script>

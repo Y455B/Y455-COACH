@@ -18,9 +18,8 @@
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:14px;line-height:1.5;}
-a{color:var(--bluetext);text-decoration:none;}
 .wrap{max-width:960px;margin:0 auto;padding:1.5rem;}
-.header{padding:1.5rem 0 1rem;}
+.header{padding:1.2rem 0 1rem;}
 .header h1{font-size:22px;font-weight:600;letter-spacing:-.3px;}
 .header p{font-size:13px;color:var(--text2);margin-top:4px;}
 .nav{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:1rem;}
@@ -29,18 +28,19 @@ a{color:var(--bluetext);text-decoration:none;}
 .tab:hover:not(.active){color:var(--text2);}
 .sec{display:none;}.sec.active{display:block;}
 .card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:1.2rem 1.4rem;margin-bottom:1rem;}
-.card-title{font-size:15px;font-weight:600;margin-bottom:1rem;color:var(--text);}
-.card-sub{font-size:12px;color:var(--text3);margin-bottom:1rem;margin-top:-8px;}
-.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-bottom:1rem;}
-.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1rem;}
-.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:1rem;}
+.card-title{font-size:15px;font-weight:600;margin-bottom:1rem;}
+.card-sub{font-size:12px;color:var(--text3);margin-bottom:1rem;margin-top:-8px;line-height:1.5;}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1rem;}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-bottom:1rem;}
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;margin-bottom:1rem;}
 .mc{background:var(--bg3);border-radius:var(--r);padding:.9rem;border:1px solid var(--border);}
 .mc .lbl{font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;}
-.mc .val{font-size:22px;font-weight:600;line-height:1;}
+.mc .val{font-size:21px;font-weight:600;line-height:1;}
 .mc .sub{font-size:11px;color:var(--text3);margin-top:4px;}
 .mc.bad .val{color:var(--redtext);}
 .mc.mid .val{color:var(--ambertext);}
 .mc.ok .val{color:var(--greentext);}
+.mc.info .val{color:var(--bluetext);}
 .bdg{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:500;white-space:nowrap;}
 .bdg.red{background:var(--redbg);color:var(--redtext);}
 .bdg.amber{background:var(--amberbg);color:var(--ambertext);}
@@ -50,92 +50,97 @@ a{color:var(--bluetext);text-decoration:none;}
 .bdg.gray{background:var(--bg4);color:var(--text2);}
 .row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;gap:10px;}
 .row:last-child{border-bottom:none;}
-.row-l{color:var(--text);flex:1;}
+.row-l{flex:1;}
 .row-sub{font-size:11px;color:var(--text3);margin-top:2px;}
 .insight{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);}
 .insight:last-child{border-bottom:none;}
 .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px;}
 .itext{font-size:13px;color:var(--text);line-height:1.6;}
-.itext b{font-weight:600;color:var(--text);}
+.itext b{font-weight:600;}
 .itext .note{font-size:12px;color:var(--text2);margin-top:4px;display:block;}
 .phase{border-left:2px solid var(--border2);padding-left:1.2rem;margin-bottom:1.5rem;}
 .phase.p1{border-color:var(--red);}
 .phase.p2{border-color:var(--amber);}
 .phase.p3{border-color:var(--green);}
-.ph-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
-.ph-title{font-size:14px;font-weight:600;color:var(--text);}
+.ph-head{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap;}
+.ph-title{font-size:14px;font-weight:600;}
 .ph-sub{font-size:12px;color:var(--text3);margin-bottom:12px;}
 .drill{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px;}
 .drill:last-child{border-bottom:none;}
 .drill-body{flex:1;}
-.drill-n{color:var(--text);font-weight:500;}
+.drill-n{font-weight:500;}
 .drill-d{font-size:12px;color:var(--text2);margin-top:3px;line-height:1.5;}
 .checkpoint{background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:1rem 1.2rem;margin-top:1rem;}
-.checkpoint .cp-title{font-size:12px;font-weight:600;color:var(--ambertext);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
-.checkpoint .cp-item{font-size:12px;color:var(--text2);padding:4px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;}
-.checkpoint .cp-item:last-child{border-bottom:none;}
-.checkpoint .cp-item b{color:var(--text);font-weight:500;}
-.cp-dot{width:5px;height:5px;border-radius:50%;background:var(--ambertext);flex-shrink:0;margin-top:6px;}
+.cp-title{font-size:11px;font-weight:700;color:var(--purpletext);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.cp-item{font-size:12px;color:var(--text2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;line-height:1.5;}
+.cp-item:last-child{border-bottom:none;}
+.cp-item b{color:var(--text);font-weight:500;}
+.cp-dot{width:5px;height:5px;border-radius:50%;background:var(--purpletext);flex-shrink:0;margin-top:7px;}
 .gls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;}
 .gls-item{background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:1rem;}
 .gls-term{font-size:13px;font-weight:600;color:var(--bluetext);margin-bottom:5px;}
 .gls-def{font-size:12px;color:var(--text2);line-height:1.6;}
 .gls-def b{color:var(--text);font-weight:500;}
-.gls-ex{font-size:11px;color:var(--text3);margin-top:4px;font-style:italic;}
-.agent-block{margin-bottom:1.5rem;}
-.agent-name{font-size:17px;font-weight:700;margin-bottom:2px;}
-.agent-role{font-size:12px;color:var(--text2);margin-bottom:12px;}
+.gls-ex{font-size:11px;color:var(--text3);margin-top:5px;font-style:italic;border-top:1px solid var(--border);padding-top:5px;}
 .ability{background:var(--bg3);border-radius:var(--r);padding:.9rem 1rem;margin-bottom:8px;border:1px solid var(--border);}
-.ability-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.ability-head{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap;}
 .ability-key{font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;background:var(--bg4);color:var(--text2);border:1px solid var(--border2);}
-.ability-name{font-size:13px;font-weight:600;color:var(--text);}
+.ability-name{font-size:13px;font-weight:600;}
 .ability-desc{font-size:12px;color:var(--text2);line-height:1.6;}
-.ability-tip{font-size:12px;color:var(--greentext);margin-top:5px;padding-top:5px;border-top:1px solid var(--border);}
-.ability-tip::before{content:"→ Tip : ";font-weight:600;}
+.ability-tip{font-size:12px;color:var(--greentext);margin-top:6px;padding-top:6px;border-top:1px solid var(--border);line-height:1.5;}
+.ability-tip::before{content:"→ Tip : ";font-weight:700;}
 .mistake{background:var(--redbg);border:1px solid var(--border);border-radius:var(--r);padding:.8rem 1rem;margin-bottom:6px;}
-.mistake-title{font-size:12px;font-weight:600;color:var(--redtext);margin-bottom:3px;}
-.mistake-body{font-size:12px;color:var(--text2);}
+.mistake-title{font-size:12px;font-weight:700;color:var(--redtext);margin-bottom:3px;}
+.mistake-body{font-size:12px;color:var(--text2);line-height:1.5;}
 .vod-q{background:var(--bg3);border-left:3px solid var(--red);border-radius:0 var(--r) var(--r) 0;padding:.75rem 1rem;margin-bottom:8px;font-size:13px;line-height:1.5;}
 .vod-q .qn{font-weight:700;color:var(--redtext);margin-right:6px;}
-.timer-wrap{text-align:center;padding:2rem 1rem;}
-.tdisp{font-size:64px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-3px;color:var(--text);margin-bottom:.5rem;}
-.tlbl{font-size:14px;color:var(--text2);margin-bottom:1.5rem;min-height:22px;}
-.tbtns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:1rem;}
-.tbtn{padding:9px 22px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg3);font-size:13px;cursor:pointer;color:var(--text);font-family:inherit;transition:all .12s;}
+.timer-wrap{text-align:center;padding:1.8rem 1rem;}
+.tdisp{font-size:60px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-3px;margin-bottom:.4rem;}
+.tlbl{font-size:14px;color:var(--text2);margin-bottom:1.2rem;min-height:20px;}
+.tprog{height:3px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:1.2rem;}
+.tprog-fill{height:100%;background:var(--blue);border-radius:2px;transition:width .5s linear;}
+.tbtns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;}
+.tbtn{padding:8px 20px;border-radius:var(--r);border:1px solid var(--border2);background:var(--bg3);font-size:13px;cursor:pointer;color:var(--text);font-family:inherit;transition:all .12s;}
 .tbtn:hover{background:var(--bg4);}
 .tbtn.go{background:var(--greenbg);border-color:var(--green);color:var(--greentext);}
-.tbtn.stop{background:var(--redbg);border-color:var(--red);color:var(--redtext);}
-.tprog{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:1.5rem;}
-.tprog-fill{height:100%;background:var(--blue);border-radius:2px;transition:width .5s linear;}
-.drill-select{list-style:none;}
-.ds-item{display:flex;gap:10px;align-items:center;padding:9px 10px;border-radius:var(--r);cursor:pointer;transition:background .1s;font-size:13px;}
+.tbtn.stp{background:var(--redbg);border-color:var(--red);color:var(--redtext);}
+.tbtn:disabled{opacity:.4;cursor:not-allowed;}
+.ds-item{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border-radius:var(--r);cursor:pointer;transition:background .1s;font-size:13px;}
 .ds-item:hover{background:var(--bg3);}
-.ds-item.sel{background:var(--bluebg);}
-.ds-dur{font-size:12px;color:var(--bluetext);width:50px;flex-shrink:0;font-weight:600;}
-.ds-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
-.ds-name{color:var(--text);}
-.ds-desc{font-size:11px;color:var(--text3);margin-top:1px;}
-.section-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin:1.2rem 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);}
+.ds-item.sel{background:var(--bluebg);border:1px solid var(--blue);}
+.ds-dur{font-size:12px;color:var(--bluetext);width:48px;flex-shrink:0;font-weight:600;margin-top:2px;}
+.ds-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.ds-name{font-weight:500;}
+.ds-sub{font-size:11px;color:var(--text3);margin-top:2px;}
+.sh{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin:1.2rem 0 .6rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);}
 .tip-box{background:var(--bg3);border-left:3px solid var(--blue);border-radius:0 var(--r) var(--r) 0;padding:.8rem 1rem;font-size:12px;color:var(--text2);margin-bottom:8px;line-height:1.6;}
 .tip-box b{color:var(--bluetext);font-weight:600;}
-.warn-box{background:var(--amberbg);border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:.8rem 1rem;font-size:12px;color:var(--ambertext);margin-top:8px;line-height:1.6;}
-.data-box{background:var(--purplebg);border:1px solid var(--purple);border-radius:var(--r);padding:1rem 1.2rem;margin-top:1rem;}
-.data-box .db-title{font-size:11px;font-weight:700;color:var(--purpletext);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
-.data-item{font-size:12px;color:var(--text2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:flex-start;}
-.data-item:last-child{border-bottom:none;}
-.data-item b{color:var(--purpletext);font-weight:500;flex-shrink:0;}
-hr{border:none;border-top:1px solid var(--border);margin:1.2rem 0;}
+.warn-box{background:var(--amberbg);border-left:3px solid var(--amber);border-radius:0 var(--r) var(--r) 0;padding:.8rem 1rem;font-size:12px;color:var(--ambertext);line-height:1.6;}
+.reveal-box{background:var(--greenbg);border:1px solid var(--green);border-radius:var(--r);padding:1rem 1.2rem;margin-bottom:1rem;}
+.reveal-box .rt{font-size:12px;font-weight:700;color:var(--greentext);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em;}
+.reveal-box p{font-size:13px;color:var(--text2);line-height:1.6;}
+.reveal-box b{color:var(--greentext);font-weight:600;}
+.hist-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:8px;}
+.hist-table th{text-align:left;color:var(--text3);font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:6px 8px;border-bottom:1px solid var(--border2);}
+.hist-table td{padding:7px 8px;border-bottom:1px solid var(--border);color:var(--text2);}
+.hist-table tr:last-child td{border-bottom:none;}
+.hist-table .hs-bad{color:var(--redtext);font-weight:600;}
+.hist-table .hs-mid{color:var(--ambertext);font-weight:600;}
+.hist-table .hs-ok{color:var(--greentext);font-weight:600;}
+.hist-table .rank-cell{color:var(--text);font-weight:500;}
+.hist-table .peak{background:var(--amberbg);}
+.hist-table .current{background:var(--bluebg);}
 </style>
 </head>
 <body>
 <div class="wrap">
   <div class="header">
     <h1>Y455 — Coach Immortal</h1>
-    <p>Silver 2 → Immortal · Reyna main · Plan 8 semaines · Données Tracker.gg + Oblivity</p>
+    <p>Silver 2 → Immortal · Reyna main · Plan 8 semaines · Basé sur 703h · Tracker.gg + Oblivity</p>
   </div>
-
   <div class="nav">
     <button class="tab active" onclick="show('plan',this)">Plan & Checkpoints</button>
+    <button class="tab" onclick="show('diag',this)">Diagnostic réel</button>
     <button class="tab" onclick="show('glossaire',this)">Glossaire</button>
     <button class="tab" onclick="show('aim',this)">Aim technique</button>
     <button class="tab" onclick="show('agents',this)">Agents</button>
@@ -143,13 +148,18 @@ hr{border:none;border-top:1px solid var(--border);margin:1.2rem 0;}
     <button class="tab" onclick="show('timer',this)">Session Timer</button>
   </div>
 
-  <!-- ===================== PLAN & CHECKPOINTS ===================== -->
+  <!-- ======= PLAN ======= -->
   <div id="tab-plan" class="sec active">
+    <div class="reveal-box">
+      <div class="rt">Insight clé — change tout</div>
+      <p>Ton peak Plat 1 a été atteint avec <b>13.9% de HS%</b>. Tu as grimpé jusqu'à Plat à la force du game sense et du KD, <b>sans jamais vraiment viser la tête</b>. Ça veut dire que ton plafond mécanique est intact — tu n'as pas de mauvaise habitude profonde, juste un réflexe à câbler. La progression mécanique sera plus rapide que la moyenne. Reyna va accélérer ça encore plus.</p>
+    </div>
+
     <div class="g4">
-      <div class="mc bad"><div class="lbl">HS% actuel</div><div class="val">17.9%</div><div class="sub">Cible Immortal : 30%</div></div>
-      <div class="mc bad"><div class="lbl">Variance ACS</div><div class="val">±84</div><div class="sub">Cible : &lt;30pts</div></div>
-      <div class="mc mid"><div class="lbl">Win Rate</div><div class="val">50%</div><div class="sub">Cible : 55%+</div></div>
-      <div class="mc mid"><div class="lbl">KAST</div><div class="val">72.8%</div><div class="sub">Cible : 78%</div></div>
+      <div class="mc bad"><div class="lbl">HS% actuel</div><div class="val">17.9%</div><div class="sub">Lifetime : 12.8%</div></div>
+      <div class="mc bad"><div class="lbl">HS% peak Plat</div><div class="val">13.9%</div><div class="sub">Monté sans viser la tête</div></div>
+      <div class="mc mid"><div class="lbl">Win Rate</div><div class="val">50%</div><div class="sub">Lifetime : 51.4%</div></div>
+      <div class="mc mid"><div class="lbl">KD actuel</div><div class="val">1.11</div><div class="sub">Lifetime : 1.20</div></div>
       <div class="mc bad"><div class="lbl">Deviation Oblivity</div><div class="val">0.53</div><div class="sub">Cible : &lt;0.35</div></div>
       <div class="mc mid"><div class="lbl">Accuracy Oblivity</div><div class="val">64.7%</div><div class="sub">Cible : 74%+</div></div>
       <div class="mc ok"><div class="lbl">TargetSwitch</div><div class="val">21ms</div><div class="sub">Déjà bon</div></div>
@@ -160,19 +170,19 @@ hr{border:none;border-top:1px solid var(--border);margin:1.2rem 0;}
       <div class="card-title">Les 3 plafonds — dans l'ordre de priorité</div>
       <div class="insight">
         <div class="dot" style="background:var(--red)"></div>
-        <div class="itext"><b>1. HS% à 17.9% — mur absolu.</b> En Immortal tout le monde aim. Un HS% de 17.9% signifie que tu tires en majorité dans le corps. Chaque balle au corps allonge ton TTK (temps pour tuer) de 20 à 40% selon l'arme. Tu perds des duels que tu aurais dû gagner mécaniquement. Ce chiffre passe à 24% en phase 1. Rien d'autre ne compte avant.
-          <span class="note">Données à surveiller : HS% sur Tracker.gg onglet Performance, et HS% par arme dans l'onglet Weapons.</span>
-        </div>
-      </div>
-      <div class="insight">
-        <div class="dot" style="background:var(--red)"></div>
-        <div class="itext"><b>2. Variance ACS 77↔244 — absence de système stable.</b> Un joueur Immortal tourne à 85% de son niveau même les mauvaises sessions. Toi tu es soit très bon soit catastrophique. Cause : tu joues ton aim, pas la game. Quand l'aim est off tu n'as aucun plan B. Ce problème se règle en phases 1 et 2 via le cadre décisionnel + l'usage du kit Reyna.
-          <span class="note">À tracker : ACS game par game sur Tracker.gg. Si la variance reste élevée après sem. 4, on revoit le macro en priorité.</span>
+        <div class="itext"><b>1. HS% à 17.9% (lifetime 12.8%) — mur absolu.</b> En Immortal tout le monde aim. Un HS% à 17.9% signifie que tu tires majoritairement dans le corps. Chaque balle au corps allonge ton TTK de 20 à 40%. Tu perds des duels mécaniquement alors que ton game sense te mettait en position gagnante. Ce chiffre passe à 24% en phase 1. Rien d'autre ne compte avant.
+          <span class="note">À surveiller : HS% sur Tracker.gg onglet Performance et HS% par arme dans l'onglet Weapons.</span>
         </div>
       </div>
       <div class="insight">
         <div class="dot" style="background:var(--amber)"></div>
-        <div class="itext"><b>3. Ghost HS% 15.2% — rounds pistolet gâchés.</b> Ton Sheriff HS% 36.4% prouve que tu sais viser. Le Ghost demande exactement la même mentalité : une balle, la tête, stop. Chaque round pistolet gagné crée un avantage économique sur 2-3 rounds suivants. C'est du RR gratuit que tu laisses sur la table.
+        <div class="itext"><b>2. Re-stabilisation du rang.</b> Tu as atteint Plat 1 (E9:A3) puis redescendu à Silver 2. Le game sense est là — la preuve : tu es monté sans mécanique. Ce qui a craqué : soit une période sans jouer, soit un tilt spiral, soit un meta shift. Le plan ici est de reconstruire la constance, pas repartir de zéro.
+          <span class="note">À tracker : Win Rate et ACS moyen sur les 20 dernières games dans Tracker.gg.</span>
+        </div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:var(--amber)"></div>
+        <div class="itext"><b>3. Ghost HS% 15.2% — rounds pistolet gâchés.</b> Ton Sheriff HS% 36.4% prouve que tu sais viser quand tu y penses. Le Ghost demande exactement la même mentalité : une balle, la tête, stop. Chaque round pistolet gagné crée un avantage économique sur 2-3 rounds.
           <span class="note">À tracker : HS% Ghost dans Tracker.gg onglet Weapons.</span>
         </div>
       </div>
@@ -180,425 +190,356 @@ hr{border:none;border-top:1px solid var(--border);margin:1.2rem 0;}
 
     <div class="card">
       <div class="card-title">Plan 8 semaines</div>
-
       <div class="phase p1">
         <div class="ph-head"><div class="ph-title">Phase 1 — Recâblage mécanique</div><span class="bdg red">Sem. 1–3</span></div>
         <div class="ph-sub">Objectif unique : HS% 17.9% → 22%. Counter-strafe automatisé. Un seul focus par session.</div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Oblivity warm-up quotidien</div><div class="drill-d">20 min avant chaque session. Scénario 1 wall 5 targets small. Cibles de progression : Accuracy &gt;70%, Deviation &lt;0.42, Score &gt;44sc.</div></div><span class="bdg red">20 min/j</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Range Valorant — headshot only</div><div class="drill-d">Bots en mouvement, vitesse medium. Règle absolue : ne tire QUE si ta crosshair est sur la tête avant d'appuyer. Si ce n'est pas le cas, ne tire pas. L'objectif n'est pas le score, c'est le conditionnement du réflexe.</div></div><span class="bdg red">15 min/j</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">DM structuré — counter-strafe unique focus</div><div class="drill-d">Règle : arrêt net → tir → rebougement. Pas de spray en mouvement. Si tu tires en bougeant, tu rates volontairement le bot et tu recommences. L'inconfort au début est normal, c'est le signe que le réflexe se recâble.</div></div><span class="bdg red">15 min/j</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Oblivity warm-up quotidien</div><div class="drill-d">20 min avant chaque session. Scénario 1 wall 5 targets small. Cibles : Accuracy &gt;70%, Deviation &lt;0.42, Score &gt;44sc. Ne change pas le scénario — la progression doit être mesurable sur le même exercice.</div></div><span class="bdg red">20 min/j</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Range Valorant — headshot only</div><div class="drill-d">Bots en mouvement, vitesse medium. Règle absolue : ne tire QUE si ta crosshair est sur la tête avant d'appuyer. Si ce n'est pas le cas, ne tire pas. L'objectif n'est pas le score — c'est le conditionnement du réflexe.</div></div><span class="bdg red">15 min/j</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">DM structuré — counter-strafe unique focus</div><div class="drill-d">Arrêt net → tir → rebougement. Pas de spray en mouvement. Si tu tires en bougeant, tu rates volontairement le bot et tu recommences. L'inconfort au début est normal — c'est le signe que le réflexe se recâble.</div></div><span class="bdg red">15 min/j</span></div>
         <div class="drill"><div class="drill-body"><div class="drill-n">Ranked — 2 games max, Reyna uniquement</div><div class="drill-d">Focus unique pendant toute la game : crosshair placement. Pas le score, pas les kills. Est-ce que ma crosshair était à hauteur de tête quand l'ennemi est apparu ?</div></div><span class="bdg gray">2 games max</span></div>
         <div class="checkpoint">
           <div class="cp-title">Checkpoint fin phase 1 — Sem. 3 — Ce que tu m'envoies</div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg onglet Performance :</b> HS% global et HS% Vandal. Objectif : HS% &gt;20%.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg onglet Weapons :</b> HS% Ghost. Objectif : &gt;22%.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen session Oblivity :</b> Accuracy, Deviation, Score. Objectifs : Acc &gt;70%, Dev &lt;0.42.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Win Rate et ACS moyen :</b> sur les 10 dernières games Tracker.gg.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div>Sur la base de ces 4 data points je recalibre la phase 2. Si HS% &lt;20% on prolonge la phase 1 une semaine et je t'explique pourquoi.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg onglet Performance :</b> HS% global et KD. Objectif : HS% &gt;20%.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg onglet Weapons :</b> HS% Vandal et Ghost. Objectifs : Vandal &gt;28%, Ghost &gt;22%.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen session Oblivity :</b> Accuracy, Deviation, Score sur le scénario 1 wall 5 targets small. Objectifs : Acc &gt;70%, Dev &lt;0.42.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Win Rate et ACS moyen :</b> sur les 10 dernières games dans Tracker.gg onglet Matches.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div>Sur la base de ces 4 data points je recalibre la phase 2. Si HS% &lt;20% on prolonge d'une semaine et j'explique pourquoi.</div></div>
         </div>
       </div>
 
       <div class="phase p2">
         <div class="ph-head"><div class="ph-title">Phase 2 — Constance + angles + pistolet</div><span class="bdg amber">Sem. 4–6</span></div>
         <div class="ph-sub">Objectifs : ACS &gt;245 stable, Win Rate &gt;53%, HS% &gt;24%, Ghost HS% &gt;28%.</div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Map knowledge — 3 angles par site</div><div class="drill-d">Split et Fracture en priorité (100% WR). Pour chaque site : 3 positions de hold défensives, 3 entrées offensives. Source : Valorant Lineups ou YouTube par map. 1 map par semaine.</div></div><span class="bdg amber">3x/sem</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Ghost pistol rounds — discipline de tir</div><div class="drill-d">Même mentalité que Sheriff : un tir, la tête, stop. En pistol round le Ghost one-shot à bout portant sur la tête. Deux bullets bien placées > spray entier. Track ton HS% Ghost chaque semaine.</div></div><span class="bdg amber">Chaque game</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Minimap active — check toutes les 5 sec</div><div class="drill-d">Installe le réflexe maintenant. En Silver personne ne le fait, en Diamond tout le monde. Avantage immédiat : tu anticipes les rotations, tu évites les flancs, tu prends de meilleures décisions d'utility.</div></div><span class="bdg amber">Chaque game</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">VOD review hebdomadaire</div><div class="drill-d">20 min sur une game. Tes morts uniquement. Protocole détaillé dans l'onglet VOD Review.</div></div><span class="bdg gray">1x/sem</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Map knowledge — 3 angles par site</div><div class="drill-d">Split et Fracture en priorité (100% WR historique). Pour chaque site : 3 positions défensives, 3 entrées offensives. Source : YouTube "Valorant lineups [map name]". 1 map par semaine.</div></div><span class="bdg amber">3x/sem</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Ghost pistol rounds — discipline de tir</div><div class="drill-d">Même mentalité que Sheriff : un tir, la tête, stop. En pistol round le Ghost one-shot headshot à bout portant. Deux bullets bien placées &gt; spray entier. Track ton HS% Ghost chaque semaine.</div></div><span class="bdg amber">Chaque game</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Minimap active — check toutes les 5 sec</div><div class="drill-d">Installe le réflexe maintenant. En Silver personne ne le fait, en Diamond tout le monde. Avantage immédiat : anticiper les rotations, éviter les flancs, meilleures décisions d'utility.</div></div><span class="bdg amber">Chaque game</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">VOD review hebdomadaire</div><div class="drill-d">20 min sur une game. Tes morts uniquement. Protocole complet dans l'onglet VOD Review.</div></div><span class="bdg gray">1x/sem</span></div>
         <div class="checkpoint">
           <div class="cp-title">Checkpoint fin phase 2 — Sem. 6</div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Performance :</b> HS% global, ACS moyen sur 20 games, Win Rate. Objectifs : HS &gt;24%, ACS &gt;245, WR &gt;52%.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Performance :</b> HS% global, Win Rate. Objectifs : HS% &gt;24%, WR &gt;52%.</div></div>
           <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Weapons :</b> HS% Ghost. Objectif : &gt;28%.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Oblivity :</b> Accuracy, Deviation. Objectifs : Acc &gt;72%, Dev &lt;0.40.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Résumé verbal :</b> Où tu sens encore que tu bloques ? Duel perdu récurrent, situation de game qui se répète ? On cible précisément la phase 3 sur ces points.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Matches — 20 dernières games :</b> ACS game par game. Objectif : ACS moyen &gt;245, pas de game &lt;160.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Oblivity :</b> Accuracy et Deviation. Objectifs : Acc &gt;72%, Dev &lt;0.40.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Résumé verbal :</b> quel type de duel tu perds encore systématiquement ? On cible la phase 3 précisément dessus.</div></div>
         </div>
       </div>
 
       <div class="phase p3">
         <div class="ph-head"><div class="ph-title">Phase 3 — Push Diamond → Immortal</div><span class="bdg green">Sem. 7–8</span></div>
-        <div class="ph-sub">Objectifs : HS% &gt;28%, 0 variance, cadre décisionnel automatique, Omen introduit.</div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Cadre décisionnel — engage uniquement avec avantage</div><div class="drill-d">Avant chaque duel : Info dispo (via minimap ou util) ? 2v1 ou plus ? Ennemi affaibli ? Angle préférentiel ? Si aucune condition cochée : ne prends pas le duel, reposition. En Immortal les morts ne sont pas de la malchance, ce sont des erreurs décisionnelles.</div></div><span class="bdg green">Automatique</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Introduction Omen — smokes d'abord</div><div class="drill-d">1 game Omen pour 3 games Reyna. Apprends 2 placements de smoke par site avant de jouer ranked. Source : Valorant Lineups sur YouTube par map. Le Shrouded Step s'entend — les joueurs Diamond pré-aim ton arrivée.</div></div><span class="bdg green">Sem. 7</span></div>
-        <div class="drill"><div class="drill-body"><div class="drill-n">Analyse pro Reyna — 1 vidéo par semaine</div><div class="drill-d">TenZ ou Aspas en ranked. Observe uniquement : placement de crosshair quand il se déplace, quand il décide de prendre ou refuser un duel, comment il enchaîne Leer + Dismiss. Pas les kills. Le processus.</div></div><span class="bdg green">1x/sem</span></div>
+        <div class="ph-sub">Objectifs : HS% &gt;28%, variance ACS &lt;40pts, cadre décisionnel automatique, Omen introduit.</div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Cadre décisionnel — engage uniquement avec avantage</div><div class="drill-d">Avant chaque duel : Info dispo ? 2v1 ou plus ? Ennemi affaibli ? Angle préférentiel ? Si aucune condition cochée → repositionne-toi. En Immortal les morts ne sont pas de la malchance — ce sont des erreurs décisionnelles.</div></div><span class="bdg green">Automatique</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Introduction Omen — smokes d'abord</div><div class="drill-d">1 game Omen pour 3 games Reyna. Apprends 2 placements de smoke par site avant de jouer ranked. Le Shrouded Step s'entend — les joueurs Diamond pré-aim ton arrivée.</div></div><span class="bdg green">Sem. 7</span></div>
+        <div class="drill"><div class="drill-body"><div class="drill-n">Analyse pro Reyna — 1 vidéo/semaine</div><div class="drill-d">TenZ ou Aspas en ranked. Observe uniquement : placement de crosshair en déplacement, quand ils refusent un duel, comment ils enchaînent Leer + Dismiss. Pas les kills — le processus.</div></div><span class="bdg green">1x/sem</span></div>
         <div class="checkpoint">
           <div class="cp-title">Checkpoint fin phase 3 — Sem. 8 — Bilan complet</div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg complet :</b> HS%, ACS, Win Rate, KAST sur les 30 dernières games.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Rang actuel :</b> comparé au rang sem. 1. Si pas encore Diamond, on identifie les 2 métriques qui bloquent et on construit une phase 4 ciblée.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Oblivity :</b> progression sur le même scénario qu'en phase 1. On mesure l'amélioration réelle.</div></div>
-          <div class="cp-item"><div class="cp-dot"></div><div><b>Bilan agents :</b> HS% et ACS par agent dans Tracker.gg. On décide si on continue Reyna ou on switch en fonction des chiffres.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Performance complet :</b> HS%, KD, Win Rate, KAST sur les 30 dernières games.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Rang actuel vs rang sem. 1 :</b> si pas encore Diamond, on identifie les 2 métriques qui bloquent et on construit une phase 4 ciblée.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Oblivity :</b> même scénario qu'en phase 1. On mesure la progression réelle sur 8 semaines.</div></div>
+          <div class="cp-item"><div class="cp-dot"></div><div><b>Screen Tracker.gg Agents :</b> HS% et ACS par agent. On décide si on continue Reyna ou on switch selon les chiffres.</div></div>
         </div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Règles non-négociables</div>
-      <div class="row"><div class="row-l"><div>Sensi fixe 8 semaines</div><div class="row-sub">Changer de sensibilité en cours de progression détruit les 3-4 semaines de muscle memory construites.</div></div><span class="bdg red">Interdit</span></div>
+      <div class="row"><div class="row-l"><div>Sensi fixe 8 semaines</div><div class="row-sub">Changer en cours détruit le muscle memory construit. Interdit même si tu te sens "mieux" avec une autre sensi.</div></div><span class="bdg red">Interdit</span></div>
       <div class="row"><div class="row-l"><div>Max 3 ranked/jour</div><div class="row-sub">Au-delà : fatigue décisionnelle. Tu perds plus de RR par tilt que tu n'en gagnes par volume.</div></div><span class="bdg red">Strict</span></div>
-      <div class="row"><div class="row-l"><div>Stop après 2 défaites consécutives</div><div class="row-sub">Règle absolue. Le tilt spiral est le premier destructeur de MMR en ranked.</div></div><span class="bdg red">Strict</span></div>
-      <div class="row"><div class="row-l"><div>Warm-up Oblivity AVANT chaque ranked</div><div class="row-sub">Le aim cold vs warm représente une différence de 15 à 25% de précision selon les études aim trainer.</div></div><span class="bdg amber">Obligatoire</span></div>
-      <div class="row"><div class="row-l"><div>Maps : ban Bind et Lotus</div><div class="row-sub">25% et 20% de WR. Chaque game sur ces maps est une game de RR brûlée.</div></div><span class="bdg amber">Recommandé</span></div>
+      <div class="row"><div class="row-l"><div>Stop après 2 défaites consécutives</div><div class="row-sub">Le tilt spiral est le premier destructeur de MMR en ranked.</div></div><span class="bdg red">Strict</span></div>
+      <div class="row"><div class="row-l"><div>Warm-up Oblivity AVANT chaque ranked</div><div class="row-sub">Aim cold vs warm = différence de 15 à 25% de précision. Non-négociable.</div></div><span class="bdg amber">Obligatoire</span></div>
+      <div class="row"><div class="row-l"><div>Ban Bind et Lotus</div><div class="row-sub">25% et 20% de WR historique. Chaque game sur ces maps = RR brûlé.</div></div><span class="bdg amber">Recommandé</span></div>
     </div>
   </div>
 
-  <!-- ===================== GLOSSAIRE ===================== -->
+  <!-- ======= DIAGNOSTIC RÉEL ======= -->
+  <div id="tab-diag" class="sec">
+    <div class="card">
+      <div class="card-title">Historique complet — 703 heures de jeu</div>
+      <div class="card-sub">Données réelles extraites de Tracker.gg. Ce tableau est la base objective du plan — pas des approximations.</div>
+      <table class="hist-table">
+        <thead>
+          <tr><th>Acte</th><th>Rang peak</th><th>Heures</th><th>Wins</th><th>Win%</th><th>KD</th><th>HS%</th></tr>
+        </thead>
+        <tbody>
+          <tr class="current"><td>V26:A2 (actuel)</td><td class="rank-cell">Silver 2</td><td>14h</td><td>14</td><td>50.0%</td><td>1.11</td><td class="hs-bad">17.9%</td></tr>
+          <tr><td>V26:A1</td><td class="rank-cell">Unranked</td><td>0.5h</td><td>0</td><td>0%</td><td>1.35</td><td class="hs-bad">14.1%</td></tr>
+          <tr><td>V25:A4</td><td class="rank-cell">Silver 2</td><td>5h</td><td>4</td><td>44.4%</td><td>0.77</td><td class="hs-bad">16.2%</td></tr>
+          <tr class="peak"><td>E9:A3 ⭐ Peak</td><td class="rank-cell" style="color:var(--ambertext)">Platinum 1</td><td>12h</td><td>11</td><td>52.4%</td><td>0.96</td><td class="hs-bad">13.9%</td></tr>
+          <tr><td>E9:A2</td><td class="rank-cell">Gold 2</td><td>62h</td><td>53</td><td>49.5%</td><td>1.07</td><td class="hs-bad">16.4%</td></tr>
+          <tr><td>E8:A2</td><td class="rank-cell">Silver 3</td><td>2h</td><td>1</td><td>33.3%</td><td>0.75</td><td class="hs-bad">15.3%</td></tr>
+          <tr><td>E8:A1</td><td class="rank-cell">Silver 3</td><td>3.4h</td><td>5</td><td>83.3%</td><td>1.08</td><td class="hs-bad">15.7%</td></tr>
+          <tr><td>E7:A2</td><td class="rank-cell">Gold 2</td><td>2.7h</td><td>3</td><td>75.0%</td><td>1.17</td><td class="hs-bad">16.9%</td></tr>
+          <tr><td>E7:A1</td><td class="rank-cell">Gold 3</td><td>91h</td><td>78</td><td>51.0%</td><td>1.17</td><td class="hs-bad">13.9%</td></tr>
+          <tr><td>E6:A3</td><td class="rank-cell">Silver 2</td><td>16h</td><td>17</td><td>60.7%</td><td>1.13</td><td class="hs-bad">16.6%</td></tr>
+          <tr><td>E5:A3</td><td class="rank-cell">Silver 3</td><td>30h</td><td>25</td><td>51.0%</td><td>1.11</td><td class="hs-bad">16.6%</td></tr>
+          <tr><td>E5:A2</td><td class="rank-cell">Silver 1</td><td>4.2h</td><td>3</td><td>42.9%</td><td>1.21</td><td class="hs-bad">16.2%</td></tr>
+          <tr><td>E4:A3</td><td class="rank-cell">Silver 2</td><td>2.2h</td><td>1</td><td>25.0%</td><td>0.83</td><td class="hs-bad">16.3%</td></tr>
+          <tr><td>E4:A1</td><td class="rank-cell">Silver 2</td><td>29h</td><td>27</td><td>55.1%</td><td class="hs-ok">1.40</td><td class="hs-bad">14.7%</td></tr>
+          <tr><td>E3:A3</td><td class="rank-cell">Gold 1</td><td>84h</td><td>72</td><td>49.7%</td><td>1.34</td><td class="hs-bad">13.4%</td></tr>
+          <tr><td>E3:A2</td><td class="rank-cell">Silver 3</td><td>57h</td><td>55</td><td>58.5%</td><td>1.39</td><td class="hs-bad">10.5%</td></tr>
+          <tr><td>E3:A1</td><td class="rank-cell">Silver 1</td><td>48h</td><td>38</td><td>44.7%</td><td>1.28</td><td class="hs-bad">8.9%</td></tr>
+          <tr><td>E2:A3</td><td class="rank-cell">Silver 1</td><td>62h</td><td>56</td><td>52.8%</td><td>1.16</td><td class="hs-bad">8.2%</td></tr>
+          <tr><td>E2:A2</td><td class="rank-cell">Iron 3</td><td>5.6h</td><td>4</td><td>50.0%</td><td>0.84</td><td class="hs-bad">9.5%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Lectures clés de ce tableau</div>
+      <div class="insight">
+        <div class="dot" style="background:var(--green)"></div>
+        <div class="itext"><b>Le HS% n'a jamais été le moteur de ta progression.</b> Tu es passé de Iron 3 à Platinum 1 avec un HS% qui n'a jamais dépassé 17.9% et qui était à 8-9% en début de carrière. Ce sont le game sense, le KD et la lecture de game qui t'ont monté. C'est une force structurelle — elle ne disparaît pas.</div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:var(--red)"></div>
+        <div class="itext"><b>Le HS% augmente légèrement avec le rang</b> — 8.9% en Silver 1 (E3:A1), 13.9% en Plat 1 (E9:A3), 17.9% aujourd'hui. C'est probablement naturel (les ennemis bougent mieux, tu adaptes). Mais passer à 28-30% demande un travail actif — ça n'arrivera pas naturellement.</div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:var(--amber)"></div>
+        <div class="itext"><b>Le pic KD 1.40 (E4:A1) correspond à 27 wins en Silver.</b> Tes meilleures périodes en terme de Win Rate (83% en E8:A1, 75% en E7:A2) sont des échantillons courts. Le 51-52% sur les longues sessions est ton niveau réel stabilisé. Passer à 55%+ stable nécessite l'ajout mécanique du HS%.</div>
+      </div>
+      <div class="insight">
+        <div class="dot" style="background:var(--blue)"></div>
+        <div class="itext"><b>703 heures de jeu.</b> C'est une base solide. Tu n'es pas un débutant qui apprend le jeu — tu es un joueur expérimenté qui a un plafond mécanique précis à débloquer. Le plan n'est pas de recommencer : c'est d'ajouter une couche sur ce qui existe déjà.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">Maps — données réelles Tracker.gg</div>
+      <div class="row"><div class="row-l">Split</div><span class="bdg green">100% WR · Ban jamais</span></div>
+      <div class="row"><div class="row-l">Fracture</div><span class="bdg green">100% WR · Ban jamais</span></div>
+      <div class="row"><div class="row-l">Haven / Pearl</div><span class="bdg amber">50% WR · Travail phase 2</span></div>
+      <div class="row"><div class="row-l">Bind</div><span class="bdg red">25% WR · Ban prioritaire</span></div>
+      <div class="row"><div class="row-l">Lotus</div><span class="bdg red">20% WR · Ban prioritaire</span></div>
+    </div>
+  </div>
+
+  <!-- ======= GLOSSAIRE ======= -->
   <div id="tab-glossaire" class="sec">
     <div class="card">
       <div class="card-title">Métriques de performance</div>
       <div class="gls-grid">
-        <div class="gls-item">
-          <div class="gls-term">HS% — Headshot Percentage</div>
-          <div class="gls-def">Pourcentage de tes balles qui touchent <b>la tête</b> par rapport à toutes tes balles qui touchent. Ne compte pas les balles dans le vide, uniquement les impacts.</div>
-          <div class="gls-ex">Ton HS% : 17.9%. Moyenne Immortal : 28-35%. Chaque % de HS% gagné = TTK réduit.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">ACS — Average Combat Score</div>
-          <div class="gls-def">Score de combat moyen par round. Calculé sur les kills, l'assistance de dommages, les multi-kills et le premier sang. <b>C'est la métrique principale de ton impact en game.</b></div>
-          <div class="gls-ex">Ton ACS : 229 (Silver). Objectif Diamond : 255+. Immortal top : 280+.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">KDA — Kills / Deaths / Assists</div>
-          <div class="gls-def">Ratio kills, morts, assists. Le KDA seul est trompeur : un agent utilitaire (Fade, Sage) peut avoir peu de kills et un énorme impact. <b>Toujours lire ACS + KDA ensemble.</b></div>
-          <div class="gls-ex">KDA 1.11 = légèrement positif. Correct en Silver, insuffisant pour Diamond.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">KAST</div>
-          <div class="gls-def">Pourcentage de rounds où tu as eu au moins un <b>K</b>ill, une <b>A</b>ssist, tu as <b>S</b>urvécu, ou tu as été <b>T</b>radé (coéquipier t'a vengé). Mesure ta consistance globale sur l'ensemble des rounds.</div>
-          <div class="gls-ex">Ton KAST : 72.8%. Objectif Immortal : 78%+. Un KAST élevé = tu contribues même quand tu vises mal.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">ADR — Average Damage per Round</div>
-          <div class="gls-def">Dommages moyens infligés par round. <b>100 ADR = tu tues 1 ennemi par round en moyenne</b> (100 HP). Révèle si tu fais des dommages sans finisher ou si tu manques tes tirs.</div>
-          <div class="gls-ex">Ton ADR : 156 (avec full buy). Bon signe : tu infiges plus que la moyenne.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">eDPI — effective DPI</div>
-          <div class="gls-def">DPI souris × sensibilité in-game. Mesure standardisée pour comparer les sensibilités entre joueurs indépendamment du matériel. <b>Zone Immortal : 200–400 eDPI.</b></div>
-          <div class="gls-ex">800 DPI × 0.45 sensi = 360 eDPI. Tu es dans la zone optimale.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">TTK — Time To Kill</div>
-          <div class="gls-def">Temps nécessaire pour éliminer un ennemi. Dépend directement de l'arme ET de la zone touchée. <b>Un headshot réduit le TTK de 30 à 60%</b> selon l'arme. C'est pour ça que le HS% est critique.</div>
-          <div class="gls-ex">Vandal headshot : 1 balle. Vandal body : 3 balles. Différence de TTK : ~400ms.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Econ / Economy</div>
-          <div class="gls-def">Score économique. Mesure combien de dommages tu infiges par crédit dépensé. Un score Econ élevé = tu achètes intelligemment et tu rentabilises tes armes.</div>
-          <div class="gls-ex">Ton Econ : 68 (victoire). Correct. À améliorer en sauvant plus dans les rounds perdus.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">First Blood</div>
-          <div class="gls-def">Premier kill du round. Statistiquement, l'équipe qui obtient le first blood gagne le round dans ~72% des cas. <b>C'est la métrique qui reflète directement l'impact de ton opening duel.</b></div>
-          <div class="gls-ex">Tes First Bloods : 2 sur la game de victoire. Cible : 3-4 par game en Reyna.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Flawless Round</div>
-          <div class="gls-def">Round gagné sans aucune mort dans ton équipe. Indique la qualité du jeu d'équipe et du contrôle de site. Plus un joueur monte en rank, plus son ratio de Flawless augmente.</div>
-          <div class="gls-ex">Tes Flawless : 23 sur la session. Correct pour Silver.</div>
-        </div>
+        <div class="gls-item"><div class="gls-term">HS% — Headshot Percentage</div><div class="gls-def">Pourcentage de tes balles qui touchent <b>la tête</b> parmi tous tes impacts. Ne compte pas les balles dans le vide.</div><div class="gls-ex">Ton HS% actuel : 17.9%. Lifetime : 12.8%. Plat 1 atteint avec 13.9%. Cible Immortal : 28-30%.</div></div>
+        <div class="gls-item"><div class="gls-term">ACS — Average Combat Score</div><div class="gls-def">Score de combat moyen par round. Calculé sur les kills, dommages assistés, multi-kills et first blood. <b>Métrique principale d'impact en game.</b></div><div class="gls-ex">Ton ACS actuel : ~229. Cible Diamond : 255+. Immortal top : 280+.</div></div>
+        <div class="gls-item"><div class="gls-term">KDA</div><div class="gls-def">Kills / Deaths / Assists. Trompeur seul : un agent utilitaire peut avoir peu de kills et un énorme impact. <b>Toujours lire ACS + KDA ensemble.</b></div><div class="gls-ex">Ton KD actuel : 1.11. Lifetime : 1.20. Peak : 1.40 (E4:A1). Correct en Silver.</div></div>
+        <div class="gls-item"><div class="gls-term">KAST</div><div class="gls-def">% de rounds avec au moins un <b>K</b>ill, <b>A</b>ssist, <b>S</b>urvie, ou <b>T</b>rade. Mesure la consistance globale sur tous les rounds.</div><div class="gls-ex">Ton KAST : 72.8%. Cible Immortal : 78%+. Un KAST élevé = tu contribues même quand tu vises mal.</div></div>
+        <div class="gls-item"><div class="gls-term">ADR — Average Damage/Round</div><div class="gls-def">Dommages moyens infligés par round. <b>100 ADR = tu tues ~1 ennemi par round</b> (100 HP). Révèle si tu fais des dommages sans finisher.</div><div class="gls-ex">Ton ADR : ~156 en full buy. Bon signe : tu crées des dommages utiles.</div></div>
+        <div class="gls-item"><div class="gls-term">TTK — Time To Kill</div><div class="gls-def">Temps pour éliminer un ennemi. <b>Un headshot réduit le TTK de 30 à 60%</b> selon l'arme. Vandal headshot : 1 balle. Vandal body : 3 balles. Différence : ~400ms.</div><div class="gls-ex">Avec 17.9% HS%, ton TTK moyen est 25% plus long que celui d'un joueur à 28% HS%.</div></div>
+        <div class="gls-item"><div class="gls-term">eDPI</div><div class="gls-def">DPI souris × sensibilité in-game. Mesure standardisée indépendante du matériel. <b>Zone Immortal : 200–400 eDPI.</b></div><div class="gls-ex">800 DPI × 0.45 sensi = 360 eDPI. Tu es dans la zone optimale.</div></div>
+        <div class="gls-item"><div class="gls-term">RR — Rank Rating</div><div class="gls-def">Points de rang. Gagner = +10 à +30 RR. Perdre = -10 à -25 RR. 100 RR = montée d'un rang. Influencé par performance individuelle en plus du résultat.</div><div class="gls-ex">Une game à 280 ACS en défaite peut donner -8 RR. Une game à 120 ACS en victoire peut donner +12 RR.</div></div>
       </div>
     </div>
-
-    <div class="card" style="margin-top:1rem;">
+    <div class="card" style="margin-top:0;">
       <div class="card-title">Termes techniques aim</div>
       <div class="gls-grid">
-        <div class="gls-item">
-          <div class="gls-term">Crosshair Placement</div>
-          <div class="gls-def">Position de ta visée quand tu te déplaces, <b>avant que l'ennemi apparaisse</b>. Règle : ta crosshair doit être à hauteur de tête en permanence. Si tu dois l'ajuster quand l'ennemi apparaît, tu as perdu 80 à 150ms.</div>
-          <div class="gls-ex">Exercice : en te déplaçant dans une map, tes yeux doivent voir la crosshair à hauteur de tête sur chaque angle que tu croises.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Counter-Strafe</div>
-          <div class="gls-def">Technique pour tirer avec précision en mouvement. En Valorant, bouger augmente ta dispersion de 200-300%. Le counter-strafe annule ce mouvement instantanément.<br><b>Méthode :</b> tu vas à droite (D) → pression brève à gauche (A) → fenêtre de précision de ~0.1s → tire → rebougement.</div>
-          <div class="gls-ex">Test : Range Valorant, tire en mouvement vs en contre-strafant. La différence est visible immédiatement.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Spray Control / Reset</div>
-          <div class="gls-def">Gestion du pattern de recul. Au-delà de la 4e-5e balle, le spray Vandal devient difficile à contrôler. <b>Le reset consiste à relâcher la gâchette 0.5s pour ramener la précision à 100%.</b></div>
-          <div class="gls-ex">Bonne pratique : tirer 2-3 balles, reset, retirer. Évite les sprays de 10+ balles sauf à courte distance.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Flick</div>
-          <div class="gls-def">Mouvement rapide de la souris pour amener la crosshair sur une cible non prévue. Utile pour les cibles apparaissant hors de ton angle de préparation. <b>À ne pas confondre avec le crosshair placement</b> : le flick corrige une erreur, le placement l'évite.</div>
-          <div class="gls-ex">Un bon crosshair placement réduit la nécessité des flicks. En Immortal, les flicks sont des corrections, pas la technique principale.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Peeking — Wide vs Shoulder</div>
-          <div class="gls-def"><b>Wide peek :</b> tu sors rapidement et loin de l'angle pour prendre l'ennemi hors de son crosshair. Requiert un bon aim.<br><b>Shoulder peek :</b> tu montres une partie de ton corps pour forcer l'ennemi à tirer et révéler sa position. Aucun aim requis, pur info.</div>
-          <div class="gls-ex">En Silver : utilise le shoulder peek pour avoir l'info avant d'engager. En Immortal les deux sont maîtrisés.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Deviation (Oblivity)</div>
-          <div class="gls-def">Mesure l'écart moyen entre le centre de tes cibles et l'endroit où tu cliques. <b>Une déviation élevée = micro-corrections excessives</b>. Ta souris continue de bouger après avoir acquis la cible au lieu de s'arrêter net.</div>
-          <div class="gls-ex">Ton score actuel : 0.53. Objectif : &lt;0.35. Chaque dixième de point gagné = aim plus propre en duel.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Overshoot / Undershoot</div>
-          <div class="gls-def"><b>Overshoot :</b> ta souris dépasse la cible et tu dois revenir en arrière. <b>Undershoot :</b> ta souris n'arrive pas jusqu'à la cible. Les deux révèlent un manque de calibration entre vitesse de flick et précision d'arrêt.</div>
-          <div class="gls-ex">Ton Oblivity : Overshoot 0.10, Undershoot 0.04. Ton problème est l'overshoot — ta main va trop loin.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Pre-aim / Pre-fire</div>
-          <div class="gls-def"><b>Pre-aim :</b> orienter ta crosshair vers l'endroit probable d'un ennemi avant de l'exposer. <b>Pre-fire :</b> commencer à tirer avant même de voir l'ennemi, sur un angle connu. Technique avancée basée sur les timings.</div>
-          <div class="gls-ex">En ranked, les angles communs sur Split et Fracture sont prévisibles. Le pre-aim dessus donne un avantage de 200-400ms.</div>
-        </div>
+        <div class="gls-item"><div class="gls-term">Crosshair Placement</div><div class="gls-def">Position de ta visée <b>avant que l'ennemi apparaisse</b>. Ta crosshair doit être à hauteur de tête en permanence. Si tu dois ajuster quand l'ennemi apparaît, tu as perdu 80 à 150ms.</div><div class="gls-ex">Exercice : en te déplaçant dans une map, ta crosshair doit être à la hauteur de tête de chaque angle que tu croises.</div></div>
+        <div class="gls-item"><div class="gls-term">Counter-Strafe</div><div class="gls-def">Technique pour tirer précisément en mouvement. Bouger augmente la dispersion de 200-300%. <b>Méthode :</b> tu vas à droite → pression brève à gauche → fenêtre de précision ~0.1s → tire → rebougement.</div><div class="gls-ex">Test immédiat : Range Valorant, tire en mouvement vs contre-strafant. La différence est radicale et visible.</div></div>
+        <div class="gls-item"><div class="gls-term">Spray Control / Reset</div><div class="gls-def">Au-delà de la 4e-5e balle, le spray Vandal devient difficile. <b>Reset = relâcher la gâchette 0.5s</b> pour revenir à 100% de précision.</div><div class="gls-ex">Bonne pratique : 2-3 balles → reset → retirer. Jamais de spray de 10+ balles sauf à bout portant.</div></div>
+        <div class="gls-item"><div class="gls-term">Deviation (Oblivity)</div><div class="gls-def">Écart moyen entre le centre de la cible et l'endroit où tu cliques. <b>Déviation élevée = micro-corrections excessives</b> après avoir acquis la cible.</div><div class="gls-ex">Ton score : 0.53. Objectif : &lt;0.35. Ton overshoot (0.10) indique que ta main dépasse la cible avant de corriger.</div></div>
+        <div class="gls-item"><div class="gls-term">Flick</div><div class="gls-def">Mouvement rapide pour amener la crosshair sur une cible imprévue. <b>Le flick corrige une erreur de placement, il ne le remplace pas.</b> En Immortal les flicks sont des corrections rares, pas la technique principale.</div><div class="gls-ex">Un bon crosshair placement réduit le besoin de flick de 70%. Travaille d'abord le placement.</div></div>
+        <div class="gls-item"><div class="gls-term">Peeking — Wide vs Shoulder</div><div class="gls-def"><b>Wide peek :</b> tu sors rapidement pour prendre l'ennemi hors de son crosshair. Requiert un bon aim.<br><b>Shoulder peek :</b> tu exposes une partie du corps pour forcer l'ennemi à tirer et révéler sa position. Pur info, aucun aim requis.</div><div class="gls-ex">En Silver : utilise le shoulder peek pour avoir l'info avant d'engager. Le wide peek vient après.</div></div>
       </div>
     </div>
-
-    <div class="card" style="margin-top:1rem;">
+    <div class="card" style="margin-top:0;">
       <div class="card-title">Termes de game</div>
       <div class="gls-grid">
-        <div class="gls-item">
-          <div class="gls-term">Retake</div>
-          <div class="gls-def">Action de reprendre un site après que les ennemis y aient planté le spike. Demande coordination, utility et timing. En Silver les retakes sont chaotiques. En Diamond ils sont structurés.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Default</div>
-          <div class="gls-def">Stratégie de base : répartition de l'équipe sur la map sans rush, en collectant l'info avant de commit sur un site. Le jeu le plus sûr en solo queue.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Eco Round</div>
-          <div class="gls-def">Round où l'équipe dépense le minimum pour conserver l'économie pour les rounds suivants. Généralement après 2-3 défaites consécutives.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Trade</div>
-          <div class="gls-def">Quand un coéquipier est éliminé et qu'un allié l'élim immédiatement en retour. Neutralise l'avantage numérique adverse. En Immortal les trades sont quasi systématiques.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">Stall / Delay</div>
-          <div class="gls-def">Action de ralentir l'attaque adverse pour donner le temps à tes coéquipiers de roter. Technique défensive clé pour les initiateurs et contrôleurs.</div>
-        </div>
-        <div class="gls-item">
-          <div class="gls-term">RR — Rank Rating</div>
-          <div class="gls-def">Points de rang gagnés ou perdus à chaque game. Gagner = +10 à +30 RR. Perdre = -10 à -25 RR. 100 RR = montée de rang.</div>
-        </div>
+        <div class="gls-item"><div class="gls-term">Retake</div><div class="gls-def">Reprendre un site après que les ennemis y aient planté le spike. Demande coordination et utility. En Silver : chaotique. En Diamond : structuré avec utility et timing.</div></div>
+        <div class="gls-item"><div class="gls-term">Default</div><div class="gls-def">Stratégie de base : répartition sur la map sans rush, collection d'info avant de commit sur un site. Le jeu le plus sûr en solo queue.</div></div>
+        <div class="gls-item"><div class="gls-term">Eco Round</div><div class="gls-def">Round où l'équipe dépense le minimum pour conserver l'économie. Généralement après 2-3 défaites consécutives.</div></div>
+        <div class="gls-item"><div class="gls-term">Trade</div><div class="gls-def">Un coéquipier est éliminé et un allié l'élim immédiatement. Neutralise l'avantage numérique. En Immortal les trades sont quasi systématiques.</div></div>
+        <div class="gls-item"><div class="gls-term">First Blood</div><div class="gls-def">Premier kill du round. L'équipe qui obtient le first blood gagne dans ~72% des cas. Métrique clé de l'impact de ton opening duel.</div><div class="gls-ex">Tes First Bloods : 2 en victoire, 1 en défaite (sur les games observées). Cible Reyna : 3-4/game.</div></div>
+        <div class="gls-item"><div class="gls-term">Pre-aim / Pre-fire</div><div class="gls-def"><b>Pre-aim :</b> orienter la crosshair vers l'endroit probable d'un ennemi avant de l'exposer.<br><b>Pre-fire :</b> commencer à tirer avant de voir l'ennemi, sur un angle connu par timing.</div><div class="gls-ex">Sur Split et Fracture les angles sont prévisibles. Le pre-aim donne un avantage de 200-400ms.</div></div>
       </div>
     </div>
   </div>
 
-  <!-- ===================== AIM TECHNIQUE ===================== -->
+  <!-- ======= AIM TECHNIQUE ======= -->
   <div id="tab-aim" class="sec">
     <div class="card">
       <div class="card-title">Les 5 fondamentaux — dans l'ordre d'apprentissage</div>
-
       <div class="insight">
         <div class="dot" style="background:var(--red)"></div>
-        <div class="itext">
-          <b>1. Crosshair Placement — priorité absolue</b><br>
-          C'est le seul fondamental qui améliore ton HS% sans toucher à ton aim. Ta crosshair doit être à hauteur de tête en permanence, même en te déplaçant dans une map vide. <b>Comment le travailler :</b> en DM, force-toi à regarder les têtes des ennemis AVANT qu'ils apparaissent. Chaque angle que tu croises, ta crosshair doit déjà être à la bonne hauteur.
-          <span class="note">Signal que tu t'améliores : tu commences à voir les têtes "venir à toi" plutôt que de devoir ajuster vers le haut depuis le sol.</span>
-        </div>
+        <div class="itext"><b>1. Crosshair Placement — priorité absolue, impact immédiat.</b><br>
+        C'est le seul fondamental qui améliore ton HS% sans toucher à ton aim. Ta crosshair doit être à hauteur de tête en permanence, même dans une map vide. <b>Comment l'entraîner :</b> en DM, avant de chercher les ennemis, positionne ta crosshair à hauteur de tête sur chaque angle. L'ennemi doit "venir à ta crosshair", pas ta crosshair aller à l'ennemi.
+        <span class="note">Signal de progression : tu commences à voir les têtes "arriver" dans ta visée plutôt que de devoir remonter depuis les pieds.</span></div>
       </div>
-
       <div class="insight">
         <div class="dot" style="background:var(--red)"></div>
-        <div class="itext">
-          <b>2. Counter-strafe — s'apprend en une semaine, dure à vie</b><br>
-          En Valorant, la dispersion en mouvement est de 3 à 6x plus large qu'à l'arrêt. Le counter-strafe te donne une fenêtre de précision maximale de ~0.1s sans t'immobiliser complètement.<br>
-          <b>Méthode exacte :</b> tu presses A → tu presses D brièvement pour annuler → pendant l'arrêt net (&lt;0.1s) tu tires → tu restes sur D ou tu represses A. Le timing s'entend : le bruit de pas s'arrête = fenêtre de tir.<br>
-          <b>Exercice de test :</b> Range Valorant, bots statiques. Tire en marchant : regarde la dispersion. Tire avec counter-strafe : la différence est immédiate et radicale.
-          <span class="note">Erreur commune : appuyer les deux touches simultanément (A+D). Ça annule le mouvement mais crée une micro-pause différente. La pression brève sur la direction opposée est la méthode correcte.</span>
-        </div>
+        <div class="itext"><b>2. Counter-strafe — s'apprend en une semaine, dure à vie.</b><br>
+        En Valorant la dispersion en mouvement est de 3 à 6x plus large qu'à l'arrêt. <b>Méthode exacte :</b> tu presses A → tu presses D brièvement pour annuler → pendant l'arrêt net (&lt;0.1s) tu tires → tu continues. Le bruit de pas s'arrête = fenêtre de tir. <b>Exercice de validation :</b> Range Valorant, bots statiques. Tire en marchant puis en contre-strafant. La différence est immédiate et radicale.
+        <span class="note">Erreur commune : appuyer A+D simultanément. Ça crée une immobilisation différente du counter-strafe propre. La pression brève sur la direction opposée est la méthode correcte.</span></div>
       </div>
-
       <div class="insight">
         <div class="dot" style="background:var(--amber)"></div>
-        <div class="itext">
-          <b>3. Gestion du spray — la règle des 4 balles</b><br>
-          Le Vandal a le meilleur first bullet accuracy du jeu. Les 4 premières balles ont un spray contrôlable. Au-delà : le recul devient aléatoire et non déterministe. <b>En pratique :</b> tirer 2-3 balles → reset (relâche la gâchette 0.5s) → retirer. Contre un ennemi isolé : souvent 1-2 balles suffisent si le crosshair placement est bon. Ne jamais spray un angle dans le vide "au cas où" : ça consomme les premières balles les plus précises.
-        </div>
+        <div class="itext"><b>3. Gestion du spray — la règle des 4 balles.</b><br>
+        Le Vandal a le meilleur first bullet accuracy du jeu. Les 4 premières balles ont un recul contrôlable. Au-delà : le pattern devient difficile et non déterministe. <b>En pratique :</b> 2-3 balles → reset 0.5s → retirer. Ne jamais spray dans le vide sur un angle "au cas où" — ça consomme les balles les plus précises avant même de voir l'ennemi.</div>
       </div>
-
       <div class="insight">
         <div class="dot" style="background:var(--amber)"></div>
-        <div class="itext">
-          <b>4. Ghost — discipline de tir identique au Sheriff</b><br>
-          Ton Sheriff HS% 36.4% prouve que tu as la capacité. Le Ghost one-tap headshot à courte et moyenne distance. <b>La mentalité :</b> en pistol round tu n'as pas d'argent à gaspiller, chaque balle compte. Pose la crosshair sur la tête, counter-strafe, une balle. Deux coups bien placés &gt; un chargeur spray. Résultat direct : rounds pistolet gagnés = avantage économique sur 2-3 rounds.
-        </div>
+        <div class="itext"><b>4. Ghost — discipline de tir identique au Sheriff.</b><br>
+        Ton Sheriff HS% 36.4% prouve que tu as la capacité. Le Ghost one-tap headshot à courte et moyenne distance. <b>Mentalité :</b> crosshair sur la tête → counter-strafe → une balle. Deux coups bien placés &gt; un chargeur spray. Impact direct : rounds pistolet gagnés = avantage économique sur 2-3 rounds suivants.</div>
       </div>
-
       <div class="insight">
         <div class="dot" style="background:var(--green)"></div>
-        <div class="itext">
-          <b>5. Posture et grip — la base physique souvent ignorée</b><br>
-          <b>Position souris :</b> grip neutre ou palm selon ta main. L'important : aucune tension dans l'avant-bras. Si tu ressens de la tension, ta précision chute mécaniquement. <b>Poignet :</b> légèrement surélevé ou à plat selon ton style de jeu (poignet = flicks courts, bras = tracking large). <b>Coude :</b> posé et stable, pas dans le vide. <b>Test rapide :</b> si après 30 min tu ressens une fatigue dans l'avant-bras, ta tension est trop haute.
-        </div>
+        <div class="itext"><b>5. Posture et grip — la base physique ignorée.</b><br>
+        <b>Grip :</b> neutre ou palm selon ta main. Aucune tension dans l'avant-bras — si tu ressens de la tension, ta précision chute mécaniquement. <b>Poignet :</b> légèrement surélevé ou à plat selon ton style (poignet = flicks courts, bras = tracking large). <b>Test :</b> si après 30 min tu ressens une fatigue dans l'avant-bras ou les doigts, ta tension est trop haute.</div>
       </div>
     </div>
 
     <div class="card">
       <div class="card-title">Programme Oblivity — progression par phase</div>
-      <div class="section-head">Phase 1 — Semaines 1-3</div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">1 wall 5 targets small (ton scénario actuel)</div><div class="drill-d">8 min · Score cible : &gt;44sc · Accuracy : &gt;70% · Deviation : &lt;0.42. Ne change pas le scénario — la progression doit être mesurable sur le même exercice.</div></div><span class="bdg red">Principal</span></div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">Tracking lent — stabilisation overshoot</div><div class="drill-d">7 min · Objectif : réduire l'overshoot de 0.10 → &lt;0.06. Aucune correction brusque, suivi fluide. Ton overshoot indique que ta main continue de bouger après avoir acquis la cible.</div></div><span class="bdg red">Secondaire</span></div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">Flick courte distance</div><div class="drill-d">5 min · Cibles à &lt;15° d'angle. Travail de rapidité d'acquisition pure.</div></div><span class="bdg gray">Bonus</span></div>
-
-      <div class="section-head">Phase 2 — Semaines 4-6</div>
+      <div class="sh">Phase 1 — Semaines 1-3</div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">1 wall 5 targets small (scénario actuel)</div><div class="drill-d">8 min · Score cible : &gt;44sc · Accuracy : &gt;70% · Deviation : &lt;0.42. Ne change pas le scénario — la comparaison doit être possible semaine après semaine.</div></div><span class="bdg red">Principal</span></div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">Tracking lent — stabilisation overshoot</div><div class="drill-d">7 min · Objectif : réduire l'overshoot 0.10 → &lt;0.06. Aucune correction brusque. Ton overshoot actuel indique que ta main continue de se déplacer après avoir acquis la cible.</div></div><span class="bdg red">Secondaire</span></div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">Flick courte distance</div><div class="drill-d">5 min · Cibles à &lt;15° d'angle. Rapidité d'acquisition pure.</div></div><span class="bdg gray">Bonus</span></div>
+      <div class="sh">Phase 2 — Semaines 4-6</div>
       <div class="drill"><div class="drill-body"><div class="drill-n">1 wall 5 targets small — maintenance</div><div class="drill-d">6 min · Score cible : &gt;45.5sc · Accuracy : &gt;72% · Deviation : &lt;0.38.</div></div><span class="bdg amber">Warm-up</span></div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">Flick multi-distances</div><div class="drill-d">8 min · Cibles de 5 à 45° d'angle. Simule les duels mid et long range de Valorant.</div></div><span class="bdg amber">Principal</span></div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">Flick multi-distances</div><div class="drill-d">8 min · Cibles de 5 à 45°. Simule les duels mid et long range de Valorant.</div></div><span class="bdg amber">Principal</span></div>
       <div class="drill"><div class="drill-body"><div class="drill-n">Micro-adjustment drill</div><div class="drill-d">6 min · Cibles à &lt;5°. Précision chirurgicale. Travail pur du poignet pour les ajustements en duel.</div></div><span class="bdg amber">Secondaire</span></div>
-
-      <div class="section-head">Phase 3 — Semaines 7-8</div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">Warm-up maintenance — 5 min max</div><div class="drill-d">1 wall 5 targets. Maintien des acquis. Accuracy cible : &gt;74%.</div></div><span class="bdg green">Warm-up</span></div>
-      <div class="drill"><div class="drill-body"><div class="drill-n">Scénario vitesse augmentée</div><div class="drill-d">10 min · Si Oblivity permet d'ajuster la vitesse des cibles, augmente de 15-20%. Simule les joueurs Diamond/Immortal.</div></div><span class="bdg green">Principal</span></div>
+      <div class="sh">Phase 3 — Semaines 7-8</div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">Warm-up maintenance — 5 min max</div><div class="drill-d">1 wall 5 targets. Accuracy cible : &gt;74%. Maintien des acquis.</div></div><span class="bdg green">Warm-up</span></div>
+      <div class="drill"><div class="drill-body"><div class="drill-n">Scénario vitesse augmentée</div><div class="drill-d">10 min · Si Oblivity permet d'ajuster la vitesse, augmente de 15-20%. Simule les profils Diamond/Immortal.</div></div><span class="bdg green">Principal</span></div>
     </div>
 
     <div class="card">
-      <div class="card-title">Erreurs mécaniques les plus fréquentes à Silver</div>
-      <div class="mistake"><div class="mistake-title">Tirer en mouvement</div><div class="mistake-body">La dispersion en mouvement sur Vandal est de 3 à 6x plus large. C'est la cause numéro 1 des "balles qui ne touchent pas" ressenties comme des bugs. Counter-strafe avant chaque tir.</div></div>
-      <div class="mistake"><div class="mistake-title">Crosshair qui regarde le sol ou les pieds</div><div class="mistake-body">Habitude naturelle pour éviter de trébucher virtuellement. Résultat : quand l'ennemi apparaît tu dois remonter la crosshair, perdant 150-300ms. L'adversaire tire déjà.</div></div>
-      <div class="mistake"><div class="mistake-title">Spray de 10+ balles sur un ennemi derrière un angle</div><div class="mistake-body">Gaspille les first bullets les plus précises. Si l'ennemi ne sort pas dans les 4 premières balles, repositionne-toi plutôt que de continuer à spray dans le vide.</div></div>
-      <div class="mistake"><div class="mistake-title">Réflexe de tir sans crosshair sur la cible</div><div class="mistake-body">Appuyer sur le clic gauche dès que quelque chose bouge, avant d'avoir acquis la tête. Entraîne des morts inutiles et consomme les utilities adverses pour rien. Conditionner : crosshair sur la tête → tir.</div></div>
+      <div class="card-title">Erreurs mécaniques les plus fréquentes en Silver</div>
+      <div class="mistake"><div class="mistake-title">Tirer en mouvement</div><div class="mistake-body">Cause numéro 1 des "balles qui ne touchent pas". La dispersion en mouvement sur Vandal est 3 à 6x plus large. Counter-strafe avant chaque tir, sans exception.</div></div>
+      <div class="mistake"><div class="mistake-title">Crosshair qui regarde les pieds ou le sol</div><div class="mistake-body">Habitude naturelle. Résultat : quand l'ennemi apparaît tu dois remonter la crosshair, perdant 150-300ms. L'adversaire a déjà tiré.</div></div>
+      <div class="mistake"><div class="mistake-title">Spray de 10+ balles sur un angle</div><div class="mistake-body">Gaspille les first bullets les plus précises. Si l'ennemi ne sort pas dans les 4 premières balles, repositionne-toi plutôt que de continuer à spray dans le vide.</div></div>
+      <div class="mistake"><div class="mistake-title">Clic gauche avant d'avoir acquis la tête</div><div class="mistake-body">Appuyer dès que quelque chose bouge sans avoir la crosshair sur la tête. Conditionnement à installer : crosshair sur la tête → tir. Pas l'inverse.</div></div>
     </div>
   </div>
 
-  <!-- ===================== AGENTS ===================== -->
+  <!-- ======= AGENTS ======= -->
   <div id="tab-agents" class="sec">
     <div class="card">
       <div class="card-title">Reyna — Duelliste · Agent principal Silver → Diamond</div>
-      <div class="card-sub">Reyna est l'agent de climb le plus efficace en solo queue. Son kit récompense directement le aim et est auto-suffisant. Elle ne dépend d'aucun coéquipier pour performer.</div>
-
-      <div class="agent-block">
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">C</span><span class="ability-name">Leer</span><span class="bdg amber" style="margin-left:auto;">2 charges · 200 credits</span></div>
-          <div class="ability-desc">Projette un orbe qui aveugle tous les ennemis qui le regardent. N'aveugle PAS tes coéquipiers. L'ennemi aveuglé voit son écran partiellement ou totalement blanc pendant 1.5s.</div>
-          <div class="ability-tip">Pose le Leer sur l'angle AVANT d'exposer ta tête. L'orbe doit apparaître à hauteur de regard de l'ennemi, pas au sol. Si l'ennemi regarde vers le bas il ne sera pas aveuglé. Cible : utiliser Leer avant 70%+ de tes duels. En Silver personne ne fait ça — c'est un avantage gratuit à chaque round.</div>
-        </div>
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">Q</span><span class="ability-name">Devour / Dismiss</span><span class="bdg red" style="margin-left:auto;">Nécessite une Soul Orb</span></div>
-          <div class="ability-desc">Après chaque kill, une Soul Orb apparaît sur le corps de l'ennemi pendant 3s. <b>Devour (Q normal) :</b> te soigne rapidement jusqu'à 100HP, voire au-delà jusqu'à 150HP (overheal). <b>Dismiss (Q pendant ulti) :</b> te rend invulnérable et invisible pendant ~2s.</div>
-          <div class="ability-tip">Dismiss est une seconde vie gratuite. La règle : après chaque kill, Dismiss en priorité sur Devour sauf si tu es à moins de 20HP. 2 secondes d'invulnérabilité te permettent de reprendre un angle, de te repositionner, ou de laisser tes coéquipiers trader. En Silver 90% des Reyna ne Dismiss pas après les kills. C'est l'erreur numéro 1.</div>
-        </div>
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">E</span><span class="ability-name">Empress (Ultimate)</span><span class="bdg purple" style="margin-left:auto;">6 orbes</span></div>
-          <div class="ability-desc">Augmente la vitesse de tir, de reload et de récupération de l'erreur de visée. Chaque kill pendant l'ulti reset le timer. Si tu tues, l'ulti dure indéfiniment.</div>
-          <div class="ability-tip">Active l'ulti quand tu as déjà l'avantage, pas en desperation. L'Empress est faite pour snowball une bonne position — pas pour renverser un 1v4 disadvantaged. Couplée à Leer + un bon angle de duel, c'est inarrêtable en Silver.</div>
-        </div>
+      <div class="card-sub">Auto-suffisante, récompense directement le aim, indépendante des coéquipiers. Meilleur agent de climb en solo queue Silver → Diamond.</div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">C</span><span class="ability-name">Leer</span><span class="bdg amber" style="margin-left:auto;">2 charges · 200 credits</span></div>
+        <div class="ability-desc">Projette un orbe qui aveugle tous les ennemis qui le regardent. N'aveugle PAS les coéquipiers. Aveuglé = écran partiellement ou totalement blanc pendant 1.5s.</div>
+        <div class="ability-tip">Pose le Leer sur l'angle AVANT d'exposer ta tête. L'orbe doit apparaître à hauteur de regard ennemi, pas au sol. Si l'ennemi regarde vers le bas il ne sera pas aveuglé. Cible : Leer avant 70%+ de tes duels. En Silver personne ne fait ça — avantage gratuit à chaque round.</div>
       </div>
-
-      <div class="section-head">Erreurs classiques Reyna en Silver</div>
-      <div class="mistake"><div class="mistake-title">Mourir avec Dismiss disponible</div><div class="mistake-body">La Soul Orb est là, tu ne la récupères pas. C'est 2 secondes d'invulnérabilité jetées. Conditionne le réflexe : kill → Dismiss immédiat, automatique, avant de penser à quoi que ce soit d'autre.</div></div>
-      <div class="mistake"><div class="mistake-title">Devour en combat actif</div><div class="mistake-body">Te soigner prend 2-3 secondes pendant lesquelles tu es quasi-statique. Si un ennemi est encore vivant à portée, Dismiss d'abord, Devour après.</div></div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">Q</span><span class="ability-name">Devour / Dismiss</span><span class="bdg red" style="margin-left:auto;">Nécessite Soul Orb (après kill)</span></div>
+        <div class="ability-desc">Après chaque kill, une Soul Orb apparaît sur le corps pendant 3s. <b>Devour :</b> soigne jusqu'à 150HP (overheal). <b>Dismiss (pendant ulti) :</b> invulnérable et invisible ~2s.</div>
+        <div class="ability-tip">Dismiss = seconde vie gratuite. Règle : après chaque kill → Dismiss en priorité sur Devour, sauf si tu es à moins de 20HP. 2 secondes d'invulnérabilité pour reprendre un angle, te repositionner, ou laisser les coéquipiers trader. En Silver 90% des Reyna ne Dismiss pas. C'est l'erreur numéro 1.</div>
+      </div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">X</span><span class="ability-name">Empress (Ultimate)</span><span class="bdg purple" style="margin-left:auto;">6 orbes</span></div>
+        <div class="ability-desc">Augmente vitesse de tir, de reload et récupération d'erreur de visée. Chaque kill pendant l'ulti reset le timer.</div>
+        <div class="ability-tip">Active l'ulti quand tu as déjà l'avantage — pas en desperation. L'Empress snowball une bonne position, elle ne renverse pas un 1v4 disadvantaged. Couplée à Leer + bon angle = inarrêtable en Silver.</div>
+      </div>
+      <div class="sh">Erreurs classiques Reyna en Silver</div>
+      <div class="mistake"><div class="mistake-title">Mourir avec Dismiss disponible</div><div class="mistake-body">La Soul Orb est là, non récupérée. 2 secondes d'invulnérabilité jetées. Conditionne le réflexe : kill → Dismiss immédiat, automatique, avant toute autre pensée.</div></div>
+      <div class="mistake"><div class="mistake-title">Devour en combat actif avec ennemi vivant</div><div class="mistake-body">Te soigner prend 2-3s pendant lesquelles tu es quasi-statique. Si un ennemi est encore vivant à portée : Dismiss d'abord, Devour après.</div></div>
       <div class="mistake"><div class="mistake-title">Leer dans le vide ou vers le sol</div><div class="mistake-body">Un Leer qui ne touche aucun ennemi = charge gaspillée. Pose-le directement sur l'angle ou dans la ligne de vision de l'ennemi connu.</div></div>
-      <div class="mistake"><div class="mistake-title">Ulti en solo sans info</div><div class="mistake-body">Empress sans savoir où sont les ennemis = cours vers eux à l'aveugle. Ulti uniquement quand tu as l'info (minimap, callout coéquipier, ou Leer confirmé).</div></div>
-
-      <div class="section-head">KPIs Reyna à tracker chaque game</div>
-      <div class="row"><div class="row-l">Dismiss utilisé après &gt;80% des kills</div><span class="bdg green">Objectif</span></div>
-      <div class="row"><div class="row-l">Leer posée avant &gt;70% des duels</div><span class="bdg green">Objectif</span></div>
+      <div class="mistake"><div class="mistake-title">Ulti sans info sur la position ennemie</div><div class="mistake-body">Empress sans savoir où sont les ennemis = courir vers eux à l'aveugle. Ulti uniquement quand tu as l'info via minimap, callout, ou Leer confirmé.</div></div>
+      <div class="sh">KPIs Reyna à tracker chaque game</div>
+      <div class="row"><div class="row-l">Dismiss après &gt;80% des kills</div><span class="bdg green">Objectif</span></div>
+      <div class="row"><div class="row-l">Leer avant &gt;70% des duels</div><span class="bdg green">Objectif</span></div>
       <div class="row"><div class="row-l">0 mort avec Dismiss disponible</div><span class="bdg amber">Cible</span></div>
       <div class="row"><div class="row-l">Ulti activée uniquement avec info préalable</div><span class="bdg amber">Cible</span></div>
     </div>
 
     <div class="card">
       <div class="card-title">Omen — Contrôleur · Second agent (semaine 7+)</div>
-      <div class="card-sub">Omen est le contrôleur le plus flexible en solo queue. Ses smokes sont globales, son téléport crée des angles imprévisibles, et sa cécité fonctionne comme un Leer étendu.</div>
-
-      <div class="agent-block">
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">C</span><span class="ability-name">Shrouded Step</span><span class="bdg amber" style="margin-left:auto;">1 charge · 100 credits</span></div>
-          <div class="ability-desc">Téléportation courte distance (max ~15m). Omen disparaît brièvement puis réapparaît à la destination.</div>
-          <div class="ability-tip">Le bruit de téléportation est audible par les ennemis proches. En Diamond+ les joueurs pré-aim la destination. Utilise-le pour des repositionnements surprenants, pas prévisibles. Ne jamais Shrouded Step vers un angle que l'ennemi surveille déjà.</div>
-        </div>
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">Q</span><span class="ability-name">Paranoia</span><span class="bdg amber" style="margin-left:auto;">1 charge · 300 credits</span></div>
-          <div class="ability-desc">Projectile de cécité traversant les murs qui aveugle tous les ennemis sur sa trajectoire. Portée : toute la map.</div>
-          <div class="ability-tip">Paranoia traverse les murs. Utilise-la avant un push de site pour aveugler les défenseurs même s'ils sont derrière un mur. Couplée aux smokes = combo d'entrée complet sans avoir besoin d'autres coéquipiers.</div>
-        </div>
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">E</span><span class="ability-name">Dark Cover</span><span class="bdg amber" style="margin-left:auto;">2 charges · Se régénère</span></div>
-          <div class="ability-desc">Smoke globale placeable n'importe où sur la map (avec portail). Dure 15 secondes et se régénère après 40s.</div>
-          <div class="ability-tip">Priorité : apprendre 2 placements de smoke par site sur Split et Fracture avant de jouer ranked. Les smokes d'Omen sont les plus polyvalentes du jeu car elles ne demandent pas de ligne de vue. Sur chaque site : une smoke pour la ligne de vue principale, une pour le flanc.</div>
-        </div>
-        <div class="ability">
-          <div class="ability-head"><span class="ability-key">X</span><span class="ability-name">From the Shadows (Ultimate)</span><span class="bdg purple" style="margin-left:auto;">7 orbes</span></div>
-          <div class="ability-desc">Téléportation sur n'importe quel point de la map. Peut être interrompue par les ennemis. Pendant la téléportation Omen est visible comme une ombre.</div>
-          <div class="ability-tip">L'ulti peut être cancellée pour feinter une rotation. Utilise-la pour fake une rotation et observer si les ennemis se repositionnent. Téléportation réelle uniquement si tu es sûr que la zone est dégagée ou si un coéquipier la clear en simultané.</div>
-        </div>
+      <div class="card-sub">Le contrôleur le plus flexible en solo queue. Smokes globales, téléport imprévisible, cécité longue portée. Augmente ton impact même quand le aim est off.</div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">C</span><span class="ability-name">Shrouded Step</span><span class="bdg amber" style="margin-left:auto;">100 credits</span></div>
+        <div class="ability-desc">Téléportation courte distance (~15m max). Omen disparaît brièvement puis réapparaît à la destination.</div>
+        <div class="ability-tip">Le bruit est audible par les ennemis proches. En Diamond les joueurs pré-aim la destination. Utilise-le pour des repositionnements surprenants, jamais vers un angle que l'ennemi surveille déjà.</div>
+      </div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">Q</span><span class="ability-name">Paranoia</span><span class="bdg amber" style="margin-left:auto;">300 credits</span></div>
+        <div class="ability-desc">Projectile de cécité traversant les murs qui aveugle tous les ennemis sur sa trajectoire. Portée : toute la map.</div>
+        <div class="ability-tip">Paranoia traverse les murs. Utilise-la avant un push de site pour aveugler les défenseurs même cachés. Couplée aux smokes = combo d'entrée complet sans dépendre des coéquipiers.</div>
+      </div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">E</span><span class="ability-name">Dark Cover</span><span class="bdg green" style="margin-left:auto;">2 charges · Se régénère</span></div>
+        <div class="ability-desc">Smoke globale placeable n'importe où sur la map (sans ligne de vue requise). Dure 15 secondes, se régénère après 40s.</div>
+        <div class="ability-tip">Priorité avant de jouer ranked Omen : apprendre 2 placements de smoke par site sur Split et Fracture. Sur chaque site : une smoke pour la ligne de vue principale, une pour le flanc. Ce sont les 4 placements minimum avant de toucher le ranked.</div>
+      </div>
+      <div class="ability">
+        <div class="ability-head"><span class="ability-key">X</span><span class="ability-name">From the Shadows</span><span class="bdg purple" style="margin-left:auto;">7 orbes</span></div>
+        <div class="ability-desc">Téléportation sur n'importe quel point de la map. Peut être interrompue. Omen visible comme une ombre pendant la téléportation.</div>
+        <div class="ability-tip">Peut être cancellée pour feinter une rotation et observer les repositionnements adverses. Téléportation réelle uniquement si la zone est dégagée ou clear par un coéquipier en simultané.</div>
       </div>
     </div>
 
     <div class="card">
-      <div class="card-title">Pool d'agents — ordre et justification</div>
-      <div class="row"><div class="row-l"><div>Reyna</div><div class="row-sub">Duelliste auto-suffisant. Récompense le aim. Parfait pour solo queue Silver → Diamond.</div></div><span class="bdg red">Main · Maintenant</span></div>
-      <div class="row"><div class="row-l"><div>Omen</div><div class="row-sub">Apporte smokes + cécité à l'équipe. Augmente ton impact même quand le aim est off.</div></div><span class="bdg amber">Second · Sem. 7+</span></div>
-      <div class="row"><div class="row-l"><div>Chamber</div><div class="row-sub">Sentinel-duelliste. Puissant mais nerfé. Demande excellente connaissance des angles. Post-Diamond.</div></div><span class="bdg blue">Pocket · Après Diamond</span></div>
-      <div class="row"><div class="row-l"><div>Fade</div><div class="row-sub">Initiateur. Excellent pour créer de l'info et de l'utility. Garde-la en pocket si l'équipe en a besoin.</div></div><span class="bdg gray">Pocket · Selon besoins</span></div>
+      <div class="card-title">Pool complet — ordre et justification</div>
+      <div class="row"><div class="row-l"><div>Reyna</div><div class="row-sub">Duelliste auto-suffisante. Récompense le aim. Idéale solo queue Silver → Diamond.</div></div><span class="bdg red">Main · Maintenant</span></div>
+      <div class="row"><div class="row-l"><div>Omen</div><div class="row-sub">Smokes + cécité. Augmente l'impact même quand le aim est off. Complément parfait à Reyna.</div></div><span class="bdg amber">Second · Sem. 7+</span></div>
+      <div class="row"><div class="row-l"><div>Chamber</div><div class="row-sub">Nerfé mais puissant. Demande excellente connaissance des angles. Post-Diamond.</div></div><span class="bdg blue">Pocket · Après Diamond</span></div>
+      <div class="row"><div class="row-l"><div>Fade</div><div class="row-sub">Initiateur. Excellent game sense requis. Garde-la si l'équipe en a besoin.</div></div><span class="bdg gray">Pocket · Selon besoins</span></div>
     </div>
   </div>
 
-  <!-- ===================== VOD REVIEW ===================== -->
+  <!-- ======= VOD ======= -->
   <div id="tab-vod" class="sec">
     <div class="card">
       <div class="card-title">C'est quoi une VOD review ?</div>
-      <div class="card-sub">VOD = Video On Demand. Regarder l'enregistrement de ta propre game pour analyser tes erreurs que tu ne vois pas en live.</div>
       <div class="insight">
         <div class="dot" style="background:var(--blue)"></div>
-        <div class="itext"><b>Pourquoi c'est indispensable.</b> En live tu joues avec 250ms de latence cognitive — ton cerveau traite l'info trop vite pour analyser. En VOD tu es spectateur, tu vois tout : ta crosshair, les ennemis que tu aurais pu éviter, les utilities que tu n'as pas utilisées. <b>1 VOD review par semaine = l'équivalent de 5 games de progression accélérée.</b></div>
+        <div class="itext"><b>VOD = Video On Demand.</b> Regarder l'enregistrement de ta propre game pour analyser les erreurs invisibles en live. En live ton cerveau traite l'info trop vite pour analyser — tu joues en réactif. En VOD tu es spectateur : tu vois ta crosshair, les ennemis que tu aurais pu éviter, les utilities non utilisées. <b>1 VOD review par semaine = l'équivalent de 5 games de progression accélérée.</b></div>
       </div>
       <div class="insight">
         <div class="dot" style="background:var(--blue)"></div>
-        <div class="itext"><b>Comment accéder à tes VODs.</b> Dans Valorant : menu principal → Carrière → sélectionne la game → Watch Replay. Les replays sont disponibles pendant ~30 jours après la game. Pour les garder plus longtemps, utilise un logiciel de capture (OBS, Medal.tv) pendant que tu joues.</div>
+        <div class="itext"><b>Comment accéder à tes VODs.</b> Dans Valorant : menu principal → Carrière → sélectionne la game → Watch Replay. Disponibles ~30 jours. Pour garder plus longtemps : OBS ou Medal.tv pendant que tu joues.</div>
       </div>
-      <div class="tip-box"><b>Règle d'or :</b> regarde UNIQUEMENT tes morts. Pas les kills, pas les rounds gagnés. Les kills t'apprennent peu. Les morts t'apprennent tout. 20 minutes sur tes morts &gt; 60 minutes de game complète.</div>
+      <div class="tip-box"><b>Règle d'or :</b> regarde UNIQUEMENT tes morts. Pas les kills, pas les rounds gagnés. Les kills t'apprennent peu. Les morts t'apprennent tout. 20 min sur tes morts &gt; 1h de game complète.</div>
     </div>
-
     <div class="card">
-      <div class="card-title">Protocole VOD — 20 min, 1 game par semaine</div>
-      <div class="card-sub">Pour chaque mort, réponds à ces 5 questions. Note mentalement le pattern qui revient le plus.</div>
-      <div class="vod-q"><span class="qn">1.</span> Avais-je l'info (minimap, callout coéquipier, Leer) avant de prendre ce duel ?</div>
-      <div class="vod-q"><span class="qn">2.</span> Ma crosshair était-elle à hauteur de tête en arrivant à l'angle ?</div>
-      <div class="vod-q"><span class="qn">3.</span> Ai-je counter-strafé avant de tirer ?</div>
-      <div class="vod-q"><span class="qn">4.</span> Avais-je utilisé mon Leer disponible avant d'engager ?</div>
-      <div class="vod-q"><span class="qn">5.</span> Étais-je en position d'avantage (angle de préférence, 2v1) ou de désavantage ?</div>
-      <div class="tip-box" style="margin-top:1rem;"><b>Lecture des résultats :</b> si &gt;70% de tes morts ont au moins 2 "non" → ton problème principal est décisionnel, pas mécanique. Travaille le macro en priorité. Si &lt;30% de tes morts ont des "non" → ton problème est mécanique. Reviens à la phase 1 aim.</div>
+      <div class="card-title">Protocole — 20 min, 1 game par semaine</div>
+      <div class="card-sub">Pour chaque mort, réponds à ces 5 questions. Note mentalement le pattern qui revient le plus souvent.</div>
+      <div class="vod-q"><span class="qn">1.</span>Avais-je l'info (minimap, callout, Leer) avant de prendre ce duel ?</div>
+      <div class="vod-q"><span class="qn">2.</span>Ma crosshair était-elle à hauteur de tête en arrivant à l'angle ?</div>
+      <div class="vod-q"><span class="qn">3.</span>Ai-je counter-strafé avant de tirer ?</div>
+      <div class="vod-q"><span class="qn">4.</span>Avais-je utilisé mon Leer disponible avant d'engager ?</div>
+      <div class="vod-q"><span class="qn">5.</span>Étais-je en position d'avantage (angle préférentiel, 2v1) ou de désavantage ?</div>
+      <div class="tip-box" style="margin-top:1rem;"><b>Lecture :</b> &gt;70% de morts avec 2+ "non" → problème décisionnel, pas mécanique. &lt;30% → problème mécanique. Calibre ton entraînement en conséquence et rapporte-moi les résultats au checkpoint.</div>
     </div>
-
     <div class="card">
-      <div class="card-title">Catégorisation des morts — identifie ton pattern récurrent</div>
-      <div class="row"><div class="row-l"><div>Mort par duel sans avantage préalable</div><div class="row-sub">Tu t'es exposé sans info, sans 2v1, sans angle préférentiel.</div></div><span class="bdg red">→ Macro/décision</span></div>
-      <div class="row"><div class="row-l"><div>Mort par crosshair mal placé</div><div class="row-sub">Ta visée était sur le corps ou les pieds quand l'ennemi est apparu.</div></div><span class="bdg red">→ Fondamental aim</span></div>
-      <div class="row"><div class="row-l"><div>Mort par tir en mouvement</div><div class="row-sub">Tu as tiré sans counter-strafe — balles dispersées.</div></div><span class="bdg red">→ Counter-strafe</span></div>
-      <div class="row"><div class="row-l"><div>Mort avec Dismiss disponible</div><div class="row-sub">Soul Orb disponible, non récupérée. Erreur de réflexe Reyna.</div></div><span class="bdg amber">→ Kit Reyna</span></div>
-      <div class="row"><div class="row-l"><div>Mort sans Leer posé</div><div class="row-sub">Tu as engagé le duel à égalité quand tu aurais pu avoir l'avantage.</div></div><span class="bdg amber">→ Kit Reyna</span></div>
-      <div class="row"><div class="row-l"><div>Mort par flanc non anticipé</div><div class="row-sub">Tu ne regardais pas la minimap. L'info était disponible.</div></div><span class="bdg blue">→ Minimap/game sense</span></div>
+      <div class="card-title">Catégorisation des morts — identifie le pattern récurrent</div>
+      <div class="row"><div class="row-l"><div>Mort par duel sans avantage préalable</div><div class="row-sub">Tu t'es exposé sans info, sans 2v1, sans angle préférentiel.</div></div><span class="bdg red">Macro/décision</span></div>
+      <div class="row"><div class="row-l"><div>Mort crosshair mal placé</div><div class="row-sub">Ta visée était sur le corps ou les pieds quand l'ennemi est apparu.</div></div><span class="bdg red">Aim fondamental</span></div>
+      <div class="row"><div class="row-l"><div>Mort par tir en mouvement</div><div class="row-sub">Tu as tiré sans counter-strafe — balles dispersées.</div></div><span class="bdg red">Counter-strafe</span></div>
+      <div class="row"><div class="row-l"><div>Mort avec Dismiss disponible</div><div class="row-sub">Soul Orb disponible, non récupérée.</div></div><span class="bdg amber">Kit Reyna</span></div>
+      <div class="row"><div class="row-l"><div>Mort sans Leer posé</div><div class="row-sub">Tu as engagé à égalité quand tu aurais pu avoir l'avantage.</div></div><span class="bdg amber">Kit Reyna</span></div>
+      <div class="row"><div class="row-l"><div>Mort par flanc non anticipé</div><div class="row-sub">Tu ne regardais pas la minimap. L'info était disponible.</div></div><span class="bdg blue">Minimap/game sense</span></div>
     </div>
   </div>
 
-  <!-- ===================== SESSION TIMER ===================== -->
+  <!-- ======= TIMER ======= -->
   <div id="tab-timer" class="sec">
     <div class="card">
-      <div class="card-title">Timer de session</div>
-      <div id="cdl" style="display:none;background:var(--bluebg);border-radius:var(--r);padding:.6rem 1rem;margin-bottom:1rem;font-size:13px;color:var(--bluetext);font-weight:600;"></div>
+      <div class="card-title">Session Timer</div>
+      <div id="cdl" style="display:none;background:var(--bluebg);border:1px solid var(--blue);border-radius:var(--r);padding:.6rem 1rem;margin-bottom:1rem;font-size:13px;color:var(--bluetext);font-weight:600;"></div>
       <div class="timer-wrap">
         <div class="tdisp" id="tdisp">00:00</div>
         <div class="tlbl" id="tlbl">Sélectionne un exercice ci-dessous</div>
         <div class="tprog"><div class="tprog-fill" id="tprog" style="width:0%"></div></div>
         <div class="tbtns">
           <button class="tbtn go" onclick="startT()" id="bstart" disabled>Démarrer</button>
-          <button class="tbtn stop" onclick="pauseT()" id="bpause" style="display:none">Pause</button>
+          <button class="tbtn stp" onclick="pauseT()" id="bpause" style="display:none">Pause</button>
           <button class="tbtn" onclick="resetT()">Reset</button>
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-title">Blocs d'entraînement</div>
-      <div class="section-head">Warm-up</div>
-      <div class="drill-select">
-        <div class="ds-item" onclick="setD(this,'Échauffement poignet',5)"><div class="ds-dot" style="background:var(--blue)"></div><div class="ds-dur">5 min</div><div><div class="ds-name">Échauffement poignet</div><div class="ds-desc">Étirements extenseurs, rotation. Ne pas skip — réduit le risque de blessure.</div></div></div>
-        <div class="ds-item" onclick="setD(this,'Oblivity warm-up',20)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">Oblivity warm-up</div><div class="ds-desc">1 wall 5 targets small. Accuracy &gt;68% avant de lancer le ranked.</div></div></div>
-      </div>
-      <div class="section-head">Mécanique</div>
-      <div class="drill-select">
-        <div class="ds-item" onclick="setD(this,'Range headshot only',15)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">15 min</div><div><div class="ds-name">Range Valorant — headshot only</div><div class="ds-desc">Ne tire QUE si crosshair sur la tête. Un seul focus.</div></div></div>
-        <div class="ds-item" onclick="setD(this,'DM counter-strafe',15)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">15 min</div><div><div class="ds-name">DM structuré — counter-strafe</div><div class="ds-desc">Stop → tire → rebougement. Pas de spray en mouvement.</div></div></div>
-      </div>
-      <div class="section-head">Ranked & Analyse</div>
-      <div class="drill-select">
-        <div class="ds-item" onclick="setD(this,'Game ranked',45)"><div class="ds-dot" style="background:var(--green)"></div><div class="ds-dur">45 min</div><div><div class="ds-name">Game ranked (estimée)</div><div class="ds-desc">Max 2-3 games par session.</div></div></div>
-        <div class="ds-item" onclick="setD(this,'VOD review',20)"><div class="ds-dot" style="background:var(--amber)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">VOD review</div><div class="ds-desc">Tes morts uniquement. 1x par semaine minimum.</div></div></div>
-        <div class="ds-item" onclick="setD(this,'Analyse pro Reyna',20)"><div class="ds-dot" style="background:var(--purple)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">Analyse pro Reyna</div><div class="ds-desc">TenZ ou Aspas. Focus : crosshair placement uniquement.</div></div></div>
-      </div>
+      <div class="sh">Warm-up obligatoire</div>
+      <div class="ds-item" onclick="setD(this,'Échauffement poignet',5)"><div class="ds-dot" style="background:var(--blue)"></div><div class="ds-dur">5 min</div><div><div class="ds-name">Échauffement poignet</div><div class="ds-sub">Étirements extenseurs, rotation. Ne pas skip.</div></div></div>
+      <div class="ds-item" onclick="setD(this,'Oblivity warm-up',20)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">Oblivity warm-up</div><div class="ds-sub">1 wall 5 targets small. Accuracy &gt;68% avant le ranked.</div></div></div>
+      <div class="sh">Mécanique</div>
+      <div class="ds-item" onclick="setD(this,'Range headshot only',15)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">15 min</div><div><div class="ds-name">Range Valorant — headshot only</div><div class="ds-sub">Ne tire QUE si crosshair sur la tête.</div></div></div>
+      <div class="ds-item" onclick="setD(this,'DM counter-strafe',15)"><div class="ds-dot" style="background:var(--red)"></div><div class="ds-dur">15 min</div><div><div class="ds-name">DM structuré — counter-strafe</div><div class="ds-sub">Stop → tire → rebougement. Pas de spray en mouvement.</div></div></div>
+      <div class="sh">Ranked & Analyse</div>
+      <div class="ds-item" onclick="setD(this,'Game ranked',45)"><div class="ds-dot" style="background:var(--green)"></div><div class="ds-dur">45 min</div><div><div class="ds-name">Game ranked</div><div class="ds-sub">Max 2-3 games par session. Stop à 2 défaites consécutives.</div></div></div>
+      <div class="ds-item" onclick="setD(this,'VOD review',20)"><div class="ds-dot" style="background:var(--amber)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">VOD review</div><div class="ds-sub">Tes morts uniquement. 1x par semaine minimum.</div></div></div>
+      <div class="ds-item" onclick="setD(this,'Analyse pro Reyna',20)"><div class="ds-dot" style="background:var(--purple)"></div><div class="ds-dur">20 min</div><div><div class="ds-name">Analyse pro Reyna</div><div class="ds-sub">TenZ ou Aspas. Focus : crosshair placement uniquement.</div></div></div>
     </div>
-    <div class="warn-box">Règle de session : warm-up Oblivity obligatoire avant tout ranked. Stop après 2 défaites consécutives. Max 3 ranked/jour.</div>
+    <div class="warn-box">Warm-up Oblivity obligatoire avant tout ranked. Stop après 2 défaites consécutives. Max 3 ranked/jour.</div>
   </div>
 </div>
 
@@ -609,19 +550,19 @@ function show(id,btn){
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
 }
-
-let iv=null,tl=0,total=0,dn='',selEl=null;
+let iv=null,tl=0,total=0,dn='',sel=null;
 function setD(el,n,m){
-  if(selEl)selEl.classList.remove('sel');
-  el.classList.add('sel');selEl=el;
+  if(sel){sel.classList.remove('sel');}
+  el.classList.add('sel');sel=el;
   clearInterval(iv);iv=null;
   dn=n;tl=m*60;total=m*60;
   document.getElementById('tdisp').textContent=fmt(tl);
   document.getElementById('tlbl').textContent=n;
   document.getElementById('tprog').style.width='0%';
-  const c=document.getElementById('cdl');c.style.display='block';c.textContent='Sélectionné : '+n+' ('+m+' min)';
-  document.getElementById('bstart').disabled=false;
-  document.getElementById('bstart').style.display='inline-block';
+  const c=document.getElementById('cdl');
+  c.style.display='block';c.textContent='Sélectionné : '+n+' ('+m+' min)';
+  const bs=document.getElementById('bstart');
+  bs.disabled=false;bs.textContent='Démarrer';bs.style.display='inline-block';
   document.getElementById('bpause').style.display='none';
 }
 function startT(){
@@ -638,24 +579,24 @@ function startT(){
       document.getElementById('tlbl').textContent='✓ Terminé — '+dn;
       document.getElementById('tprog').style.width='100%';
       document.getElementById('bpause').style.display='none';
-      document.getElementById('bstart').style.display='inline-block';
-      document.getElementById('bstart').textContent='Refaire';
+      const bs=document.getElementById('bstart');
+      bs.style.display='inline-block';bs.textContent='Refaire';
     }
   },1000);
 }
 function pauseT(){
   clearInterval(iv);iv=null;
   document.getElementById('bpause').style.display='none';
-  document.getElementById('bstart').style.display='inline-block';
-  document.getElementById('bstart').textContent='Reprendre';
+  const bs=document.getElementById('bstart');
+  bs.style.display='inline-block';bs.textContent='Reprendre';
 }
 function resetT(){
   clearInterval(iv);iv=null;
   tl=total;
   document.getElementById('tdisp').textContent=fmt(tl);
   document.getElementById('tprog').style.width='0%';
-  document.getElementById('bstart').textContent='Démarrer';
-  document.getElementById('bstart').style.display='inline-block';
+  const bs=document.getElementById('bstart');
+  bs.textContent='Démarrer';bs.style.display='inline-block';
   document.getElementById('bpause').style.display='none';
 }
 function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
